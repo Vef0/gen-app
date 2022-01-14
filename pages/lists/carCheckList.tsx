@@ -1,7 +1,5 @@
-export const CarCheckList = () => {
-  return (
-    <div>
-      Car
-    </div>
-  )
-}
+const CarCheckList = () => {
+  return <div>Car</div>;
+};
+
+export default CarCheckList;

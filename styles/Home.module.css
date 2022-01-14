@@ -12,6 +12,10 @@
   align-items: center;
 }
 
+.main h3 {
+  font-size: 3rem;
+}
+
 .footer {
   display: flex;
   flex: 1;
@@ -29,7 +33,7 @@
 }
 
 .title a {
-  color: #0070f3;
+  color: #c94235;
   text-decoration: none;
 }
 
@@ -88,8 +92,8 @@
 .card:hover,
 .card:focus,
 .card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+  color: #c94135d2;
+  border-color: #c94135d2;
 }
 
 .card h2 {
