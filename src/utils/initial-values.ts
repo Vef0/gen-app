@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import model from './form-models';
 
 const {
@@ -8,6 +9,7 @@ const {
     client_telephone,
     client_email,
     client_vim,
+    client_select,
   },
 } = model;
 
@@ -18,4 +20,5 @@ export default {
   [client_telephone.name]: '',
   [client_email.name]: '',
   [client_vim.name]: '',
-}
+  [client_select.name]: '',
+};
