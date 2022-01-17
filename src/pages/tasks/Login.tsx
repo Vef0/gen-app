@@ -1,6 +1,6 @@
-import React, { useReducer, useEffect } from 'react';
-import { createStyles, makeStyles } from '@mui/styles';
-import { Theme } from '@mui/material/styles';
+import React, {useReducer, useEffect} from 'react';
+import {createStyles, makeStyles} from '@mui/styles';
+import {Theme} from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -33,11 +33,6 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       '&:hover': {
         backgroundColor: '#000000',
-      },
-    },
-    boxes: {
-      '&:p': {
-        fontSize: '5rem',
       },
     },
     card: {
@@ -133,7 +128,9 @@ const Login = () => {
         type: 'loginSuccess',
         payload: 'Ingreso exitoso',
       });
-      Router.push('../checklist');
+      Router.push('../checklist').then(() => {
+        console.log('redirected')
+      });
     } else {
       dispatch({
         type: 'loginFailed',
@@ -169,31 +166,29 @@ const Login = () => {
     <form className={classes.container} noValidate autoComplete="off">
       <Card className={classes.card}>
         <CardContent>
-          <div className={classes.boxes}>
-            <TextField
-              error={state.isError}
-              fullWidth
-              id="username"
-              type="email"
-              label="Usuario"
-              placeholder="Usuario"
-              margin="normal"
-              onChange={handleUsernameChange}
-              onKeyPress={handleKeyPress}
-            />
-            <TextField
-              error={state.isError}
-              fullWidth
-              id="password"
-              type="password"
-              label="Contraseña"
-              placeholder="Contraseña"
-              margin="normal"
-              helperText={state.helperText}
-              onChange={handlePasswordChange}
-              onKeyPress={handleKeyPress}
-            />
-          </div>
+          <TextField
+            error={state.isError}
+            fullWidth
+            id="username"
+            type="email"
+            label="Usuario"
+            placeholder="Usuario"
+            margin="normal"
+            onChange={handleUsernameChange}
+            onKeyPress={handleKeyPress}
+          />
+          <TextField
+            error={state.isError}
+            fullWidth
+            id="password"
+            type="password"
+            label="Contraseña"
+            placeholder="Contraseña"
+            margin="normal"
+            helperText={state.helperText}
+            onChange={handlePasswordChange}
+            onKeyPress={handleKeyPress}
+          />
         </CardContent>
         <CardActions>
           <Button

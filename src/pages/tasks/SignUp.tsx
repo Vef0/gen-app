@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { createStyles, makeStyles } from '@mui/styles';
-import { Theme } from '@mui/material/styles';
-import { TextField, Button } from '@mui/material';
-import { Formik, Form, FormikProps } from 'formik';
+import React, {useState} from 'react';
+import {createStyles, makeStyles} from '@mui/styles';
+import {Theme} from '@mui/material/styles';
+import {TextField, Button} from '@mui/material';
+import {Formik, Form, FormikProps} from 'formik';
 import * as Yup from 'yup';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
+    container: {
       display: 'flex',
       flexWrap: 'wrap',
       width: 400,
@@ -35,8 +35,8 @@ const useStyles = makeStyles((theme: Theme) =>
         backgroundColor: '#000000',
       },
     },
-    successMessage: { color: 'green' },
-    errorMessage: { color: 'red' },
+    successMessage: {color: 'green'},
+    errorMessage: {color: 'red'},
     card: {
       marginTop: theme.spacing(0),
     },
@@ -90,7 +90,8 @@ const SignUp: React.FunctionComponent = () => {
         setFormStatus(formStatusProps.success);
         resetForm({});
       }
-    } catch (error) {
+    } catch (error: unknown) {
+      // @ts-ignore
       const response = error.response;
       if (response.data === 'user already exist' && response.status === 400) {
         setFormStatus(formStatusProps.duplicate);
@@ -101,6 +102,22 @@ const SignUp: React.FunctionComponent = () => {
       setDisplayFormStatus(true);
     }
   };
+
+  const checkSendButton = (formStatus_b: IFormStatus) => {
+    if (formStatus_b.type === 'error') {
+      return (
+        <p className={classes.errorMessage}>
+          {formStatus_b.message}
+        </p>
+      );
+    } else if (formStatus_b.type === 'success') {
+      <p className={classes.successMessage}>
+        {formStatus_b.message}
+      </p>
+    } else {
+      return null
+    }
+  }
 
   return (
     <Formik
@@ -125,7 +142,7 @@ const SignUp: React.FunctionComponent = () => {
         fullName: Yup.string().required('Por favor ingrese su nombre completo'),
         password: Yup.string()
           .matches(
-            /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()]).{8,20}\S$/
+            /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()]).{8,20}\S$/
           )
           .required(
             'Ingrese una contraseña válida. Debe contener al menos una mayúscula, una minúscula, un número y un caracter especial'
@@ -151,7 +168,7 @@ const SignUp: React.FunctionComponent = () => {
           isSubmitting,
         } = props;
         return (
-          <Form className={classes.root}>
+          <Form className={classes.container}>
             <Card className={classes.card}>
               <CardContent>
                 <TextField
@@ -166,7 +183,7 @@ const SignUp: React.FunctionComponent = () => {
                       ? errors.fullName
                       : 'Ingrese su nombre completo.'
                   }
-                  error={errors.fullName && touched.fullName ? true : false}
+                  error={!!(errors.fullName && touched.fullName)}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
@@ -182,7 +199,7 @@ const SignUp: React.FunctionComponent = () => {
                       ? 'Ingrese una contraseña válida. Debe contener al menos una mayúscula, una minúscula, un número y un caracter especial'
                       : 'Debe contener al menos una mayúscula, una minúscula, un número y un caracter especial'
                   }
-                  error={errors.password && touched.password ? true : false}
+                  error={!!(errors.password && touched.password)}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
@@ -199,9 +216,7 @@ const SignUp: React.FunctionComponent = () => {
                       : 'Re-ingrese la contraseña para confirmar.'
                   }
                   error={
-                    errors.confirmPassword && touched.confirmPassword
-                      ? true
-                      : false
+                    !!(errors.confirmPassword && touched.confirmPassword)
                   }
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -218,7 +233,7 @@ const SignUp: React.FunctionComponent = () => {
                       ? errors.idTrabajador
                       : 'Ingrese su ID de Trabajador'
                   }
-                  error={errors.email && touched.email ? true : false}
+                  error={!!(errors.email && touched.email)}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
@@ -234,7 +249,7 @@ const SignUp: React.FunctionComponent = () => {
                       ? errors.email
                       : 'Ingrese su email'
                   }
-                  error={errors.email && touched.email ? true : false}
+                  error={!!(errors.email && touched.email)}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
@@ -251,15 +266,7 @@ const SignUp: React.FunctionComponent = () => {
                 </Button>
                 {displayFormStatus && (
                   <div className="formStatus">
-                    {formStatus.type === 'error' ? (
-                      <p className={classes.errorMessage}>
-                        {formStatus.message}
-                      </p>
-                    ) : formStatus.type === 'success' ? (
-                      <p className={classes.successMessage}>
-                        {formStatus.message}
-                      </p>
-                    ) : null}
+                    {checkSendButton(formStatus)}
                   </div>
                 )}
               </CardActions>

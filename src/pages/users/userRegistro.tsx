@@ -1,6 +1,6 @@
-import SignUp from '../components/SignUp';
+import SignUp from '../tasks/SignUp';
 import Head from 'next/head';
-import styles from '../../styles/Home.module.css';
+import styles from '../../../styles/Home.module.css';
 
 const userRegistro = () => {
   return (

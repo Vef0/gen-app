@@ -1,15 +1,9 @@
 import React from 'react';
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  TextField,
-} from '@mui/material';
-import { Form, Formik, FormikProps } from 'formik';
+import {Button, Card, CardActions, CardContent, TextField,} from '@mui/material';
+import {Form, Formik, FormikProps} from 'formik';
 import * as Yup from 'yup';
-import { createStyles, makeStyles } from '@mui/styles';
-import { Theme } from '@mui/material/styles';
+import {createStyles, makeStyles} from '@mui/styles';
+import {Theme} from '@mui/material/styles';
 import Link from 'next/link';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -108,7 +102,7 @@ const UserCheckList = () => {
                       ? errors.cli_name
                       : 'Ingrese el nombre del cliente'
                   }
-                  error={errors.cli_name && touched.cli_name ? true : false}
+                  error={!!(errors.cli_name && touched.cli_name)}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
@@ -124,7 +118,7 @@ const UserCheckList = () => {
                       ? errors.cli_addr
                       : 'Ingrese la direccion del cliente'
                   }
-                  error={errors.cli_addr && touched.cli_addr ? true : false}
+                  error={!!(errors.cli_addr && touched.cli_addr)}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
@@ -140,7 +134,7 @@ const UserCheckList = () => {
                       ? errors.cli_r_d
                       : 'Ingrese el RUC/DNI del cliente'
                   }
-                  error={errors.cli_r_d && touched.cli_r_d ? true : false}
+                  error={!!(errors.cli_r_d && touched.cli_r_d)}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
@@ -156,7 +150,7 @@ const UserCheckList = () => {
                       ? errors.cli_pho
                       : 'Ingrese el telefono del cliente'
                   }
-                  error={errors.cli_pho && touched.cli_pho ? true : false}
+                  error={!!(errors.cli_pho && touched.cli_pho)}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
@@ -171,7 +165,7 @@ const UserCheckList = () => {
                       ? errors.cli_email
                       : 'Ingrese el email del cliente'
                   }
-                  error={errors.cli_email && touched.cli_email ? true : false}
+                  error={!!(errors.cli_email && touched.cli_email)}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
@@ -186,7 +180,7 @@ const UserCheckList = () => {
                       ? errors.cli_ser_v
                       : 'Ingrese la serie VIN del cliente'
                   }
-                  error={errors.cli_ser_v && touched.cli_ser_v ? true : false}
+                  error={!!(errors.cli_ser_v && touched.cli_ser_v)}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
@@ -198,6 +192,7 @@ const UserCheckList = () => {
                   color="secondary"
                   className={classes.nextBtn}
                   onClick={() => console.log('click')}
+                  disabled={isSubmitting}
                 >
                   SIGUIENTE
                 </Button>
@@ -210,7 +205,7 @@ const UserCheckList = () => {
                 color="primary"
                 className={classes.backBtn}
               >
-                Atras
+                Salir
               </Button>
             </Link>
           </Form>

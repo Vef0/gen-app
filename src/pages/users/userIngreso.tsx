@@ -1,6 +1,6 @@
-import Login from '../components/Login';
+import Login from '../tasks/Login';
 import Head from 'next/head';
-import styles from '../../styles/Home.module.css';
+import styles from '../../../styles/Home.module.css';
 const userIngreso = () => {
   return (
     <div className={styles.container}>
