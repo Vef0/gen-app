@@ -6,7 +6,6 @@ import {
 } from 'components/atoms/form-fields';
 import { FormikValues } from 'formik';
 import React from 'react';
-import model from '../../../utils/form-models';
 
 interface PropsType {
   formsField: FormikValues;
@@ -31,10 +30,9 @@ const clients = [
   },
 ];
 
-
-const UserForm: React.FC = (props) => {
+const UserForm: React.FC<PropsType> = (props) => {
   const {
-    formField: {
+    formsField: {
       client_name,
       client_address,
       client_R_D,
@@ -44,7 +42,7 @@ const UserForm: React.FC = (props) => {
       client_select,
       client_checkbox,
     },
-  } = model;
+  } = props;
   return (
     <div>
       <Grid container spacing={3} sx={{ p: 2 }}>
@@ -111,7 +109,10 @@ const UserForm: React.FC = (props) => {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <CheckBoxField name={client_checkbox.name} label={client_checkbox.label}/>
+          <CheckBoxField
+            name={client_checkbox.name}
+            label={client_checkbox.label}
+          />
         </Grid>
       </Grid>
     </div>

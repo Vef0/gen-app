@@ -5,10 +5,10 @@ import {
   MenuItem,
   Select,
   SelectChangeEvent,
-} from "@mui/material";
-import { useField } from "formik";
-import { at } from "lodash";
-import React, {useEffect} from "react";
+} from '@mui/material';
+import { useField } from 'formik';
+import { at } from 'lodash';
+import React, { useEffect } from 'react';
 
 interface PropsType {
   data: Array<{ label: string; value: string }>;
@@ -21,7 +21,7 @@ const SelectField: React.FC<PropsType> = (props) => {
   const { label, data, ...rest } = props;
   const [field, meta, helper] = useField(props);
   const { value: selectedValue } = field;
-  const [touched, error] = at(meta, "touched", "error");
+  const [touched, error] = at(meta, 'touched', 'error');
   const isError = touched && error;
   const { setValue } = helper;
   // useEffect(() => setValue(selectedValue ?? ''), [selectedValue]);
@@ -37,7 +37,7 @@ const SelectField: React.FC<PropsType> = (props) => {
   // };
 
   return (
-    <FormControl {...rest}>
+    <FormControl {...rest} variant="standard" error={isError}>
       <InputLabel>{label}</InputLabel>
       <Select
         {...field}
@@ -48,7 +48,7 @@ const SelectField: React.FC<PropsType> = (props) => {
           <MenuItem key={index} value={item.value}>
             {item.label ?? item.value}
           </MenuItem>
-          ))}
+        ))}
       </Select>
       {renderHelperText()}
     </FormControl>

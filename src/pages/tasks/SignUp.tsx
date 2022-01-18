@@ -1,47 +1,14 @@
-import React, {useState} from 'react';
-import {createStyles, makeStyles} from '@mui/styles';
-import {Theme} from '@mui/material/styles';
-import {TextField, Button} from '@mui/material';
-import {Formik, Form, FormikProps} from 'formik';
+import React, { useState } from 'react';
+import { createStyles, makeStyles } from '@mui/styles';
+import { Theme } from '@mui/material/styles';
+import { TextField, Button } from '@mui/material';
+import { Formik, Form, FormikProps } from 'formik';
 import * as Yup from 'yup';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Link from 'next/link';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    container: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      width: 400,
-      margin: `${theme.spacing(0)} auto`,
-    },
-    submitButton: {
-      marginTop: theme.spacing(2),
-      backgroundColor: '#000000',
-      flexGrow: 1,
-      '&:hover': {
-        backgroundColor: '#C94235',
-      },
-    },
-    backBtn: {
-      marginTop: theme.spacing(2),
-      marginLeft: theme.spacing(15),
-      marginRight: theme.spacing(15),
-      backgroundColor: '#C94235',
-      flexGrow: 1,
-      '&:hover': {
-        backgroundColor: '#000000',
-      },
-    },
-    successMessage: {color: 'green'},
-    errorMessage: {color: 'red'},
-    card: {
-      marginTop: theme.spacing(0),
-    },
-  })
-);
+import { userForms } from '../../../styles/userForms.styles';
 
 interface ISignUpForm {
   fullName: string;
@@ -76,7 +43,7 @@ const formStatusProps: IFormStatusProps = {
 };
 
 const SignUp: React.FunctionComponent = () => {
-  const classes = useStyles();
+  const classes = userForms();
   const [displayFormStatus, setDisplayFormStatus] = useState(false);
   const [formStatus, setFormStatus] = useState<IFormStatus>({
     message: '',
@@ -105,19 +72,13 @@ const SignUp: React.FunctionComponent = () => {
 
   const checkSendButton = (formStatus_b: IFormStatus) => {
     if (formStatus_b.type === 'error') {
-      return (
-        <p className={classes.errorMessage}>
-          {formStatus_b.message}
-        </p>
-      );
+      return <p className={classes.errorMessage}>{formStatus_b.message}</p>;
     } else if (formStatus_b.type === 'success') {
-      <p className={classes.successMessage}>
-        {formStatus_b.message}
-      </p>
+      <p className={classes.successMessage}>{formStatus_b.message}</p>;
     } else {
-      return null
+      return null;
     }
-  }
+  };
 
   return (
     <Formik
@@ -215,9 +176,7 @@ const SignUp: React.FunctionComponent = () => {
                       ? errors.confirmPassword
                       : 'Re-ingrese la contraseña para confirmar.'
                   }
-                  error={
-                    !!(errors.confirmPassword && touched.confirmPassword)
-                  }
+                  error={!!(errors.confirmPassword && touched.confirmPassword)}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />

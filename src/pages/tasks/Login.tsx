@@ -1,6 +1,6 @@
-import React, {useReducer, useEffect} from 'react';
-import {createStyles, makeStyles} from '@mui/styles';
-import {Theme} from '@mui/material/styles';
+import React, { useReducer, useEffect } from 'react';
+import { createStyles, makeStyles } from '@mui/styles';
+import { Theme } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -8,38 +8,7 @@ import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import Link from 'next/link';
 import Router from 'next/router';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    container: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      width: 400,
-      margin: `${theme.spacing(0)} auto`,
-    },
-    loginBtn: {
-      marginTop: theme.spacing(2),
-      backgroundColor: '#000000',
-      flexGrow: 1,
-      '&:hover': {
-        backgroundColor: '#C94235',
-      },
-    },
-    backBtn: {
-      marginTop: theme.spacing(2),
-      marginLeft: theme.spacing(15),
-      marginRight: theme.spacing(15),
-      backgroundColor: '#C94235',
-      flexGrow: 1,
-      '&:hover': {
-        backgroundColor: '#000000',
-      },
-    },
-    card: {
-      marginTop: theme.spacing(0),
-    },
-  })
-);
+import { userForms } from '../../../styles/userForms.styles';
 
 //state type
 
@@ -105,7 +74,7 @@ const reducer = (state: State, action: Action): State => {
 };
 
 const Login = () => {
-  const classes = useStyles();
+  const classes = userForms();
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
@@ -129,7 +98,7 @@ const Login = () => {
         payload: 'Ingreso exitoso',
       });
       Router.push('../checklist').then(() => {
-        console.log('redirected')
+        console.log('redirected');
       });
     } else {
       dispatch({
