@@ -37,5 +37,9 @@ export default {
       label: 'Client Select',
       requiredErrorMessage: 'Client Select is required',
     },
+    client_checkbox: {
+      name: 'client_checkbox',
+      label: 'Client Checkbox',
+    },
   },
 };

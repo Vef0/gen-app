@@ -10,6 +10,7 @@ const {
     client_email,
     client_vim,
     client_select,
+    client_checkbox,
   },
 } = model;
 
@@ -21,4 +22,5 @@ export default {
   [client_email.name]: '',
   [client_vim.name]: '',
   [client_select.name]: '',
+  [client_checkbox.name]: false,
 };

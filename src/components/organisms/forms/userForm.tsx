@@ -12,6 +12,26 @@ interface PropsType {
   formsField: FormikValues;
 }
 
+const clients = [
+  {
+    value: '',
+    label: '- - Seleccione uno - -',
+  },
+  {
+    value: '1',
+    label: 'Cliente 1',
+  },
+  {
+    value: '2',
+    label: 'Cliente 2',
+  },
+  {
+    value: '3',
+    label: 'Cliente 3',
+  },
+];
+
+
 const UserForm: React.FC = (props) => {
   const {
     formField: {
@@ -22,6 +42,7 @@ const UserForm: React.FC = (props) => {
       client_email,
       client_vim,
       client_select,
+      client_checkbox,
     },
   } = model;
   return (
@@ -90,30 +111,11 @@ const UserForm: React.FC = (props) => {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <CheckBoxField name={client_vim.name} label={client_vim.label} />
+          <CheckBoxField name={client_checkbox.name} label={client_checkbox.label}/>
         </Grid>
       </Grid>
     </div>
   );
 };
-
-const clients = [
-  {
-    value: '',
-    label: 'none',
-  },
-  {
-    value: '1',
-    label: 'Cliente 1',
-  },
-  {
-    value: '2',
-    label: 'Cliente 2',
-  },
-  {
-    value: '3',
-    label: 'Cliente 3',
-  },
-];
 
 export default UserForm;

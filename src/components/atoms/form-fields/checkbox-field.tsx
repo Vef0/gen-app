@@ -4,8 +4,8 @@ import {
   FormControlLabel,
   FormHelperText,
 } from '@mui/material';
-import { useField } from 'formik';
-import { at } from 'lodash';
+import {useField} from 'formik';
+import {at} from 'lodash';
 import React from 'react';
 
 interface PropsType {
@@ -14,9 +14,9 @@ interface PropsType {
 }
 
 const CheckBoxField: React.FC<PropsType> = (props) => {
-  const { label, ...restProps } = props;
+  const {label, ...restProps} = props;
   const [field, meta, helper] = useField(props);
-  const { setValue } = helper;
+  const {setValue} = helper;
 
   function renderHelperText() {
     const [touched, error] = at(meta, 'touched', 'error');
@@ -34,9 +34,9 @@ const CheckBoxField: React.FC<PropsType> = (props) => {
       <FormControlLabel
         value={field.value}
         checked={field.checked}
-        control={<Checkbox {...field} onChange={onChange} />}
+        control={<Checkbox {...field} onChange={onChange}/>}
         label={label}
-      ></FormControlLabel>
+      />
     </FormControl>
   );
 };

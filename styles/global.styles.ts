@@ -11,8 +11,6 @@ export const useStyle = makeStyles((theme: Theme) => ({
       marginLeft: "auto",
       marginRight: "auto",
     },
-    backgroundColor: theme.palette.background.default,
-    color: theme.palette.text.primary,
   },
   paper: {
     marginTop: theme.spacing(3),
