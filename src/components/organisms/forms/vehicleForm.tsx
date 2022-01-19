@@ -1,7 +1,7 @@
-import {Grid} from '@mui/material';
-import {CheckBoxField, InputField} from 'components/atoms/form-fields';
-import {FormikValues} from 'formik';
-import React from "react";
+import { Grid } from '@mui/material';
+import { CheckBoxField, InputField } from 'components/atoms/form-fields';
+import { FormikValues } from 'formik';
+import React from 'react';
 
 interface PropsType {
   formsField: FormikValues;
@@ -83,8 +83,7 @@ const VehicleForm: React.FC<PropsType> = (props) => {
   } = props;
   return (
     <div>
-      <Grid container spacing={3} sx={{p: 2}}>
-
+      <Grid container spacing={3} sx={{ p: 2 }}>
         {/*VEHICLE TEXTFIELDS*/}
         <Grid item xs={12} sm={6}>
           <InputField
@@ -194,10 +193,10 @@ const VehicleForm: React.FC<PropsType> = (props) => {
           />
         </Grid>
         <Grid item xs={12}>
-            <CheckBoxField
-                name={inventarioV_plumillas.name}
-                label={inventarioV_plumillas.label}
-            />
+          <CheckBoxField
+            name={inventarioV_plumillas.name}
+            label={inventarioV_plumillas.label}
+          />
         </Grid>
         <Grid item xs={12}>
           <CheckBoxField
@@ -506,9 +505,12 @@ const VehicleForm: React.FC<PropsType> = (props) => {
           />
         </Grid>
         <Grid item xs={12}>
-          <CheckBoxField
-            name={inventarioV_otros.name}
-            label={inventarioV_otros.label}
+          <InputField
+            defaultProps={{
+              name: inventarioV_otros.name,
+              label: inventarioV_otros.label,
+              fullWidth: true,
+            }}
           />
         </Grid>
       </Grid>

@@ -1,31 +1,41 @@
-import {Button, CircularProgress, Step, StepLabel, Stepper,} from '@mui/material';
+import {
+  Button,
+  CircularProgress,
+  Step,
+  StepLabel,
+  Stepper,
+} from '@mui/material';
 import Head from 'next/head';
 import homeStyles from '../../styles/Home.module.css';
-import {Wrapper} from '../components/layout';
+import { Wrapper } from '../components/layout';
 import React from 'react';
-import {Form, Formik, FormikHelpers, FormikValues} from 'formik';
+import { Form, Formik, FormikHelpers, FormikValues } from 'formik';
 import initialValues from 'utils/initial-values';
-import {UserForm, VehicleForm, RecepcionForm} from '../components/organisms/forms';
+import {
+  UserForm,
+  VehicleForm,
+  RecepcionForm,
+} from '../components/organisms/forms';
 import formModel from '../utils/form-models';
 import validationSchema from 'utils/validation-schema';
-import {checklistDisplayStyles} from '../../styles/checklistDisplay.styles';
+import { checklistDisplayStyles } from '../../styles/checklistDisplay.styles';
 import ReviewOrder from '../components/organisms/review-order';
-import CheckoutSucces from "../components/organisms/forms/checkout-succes";
+import CheckoutSucces from '../components/organisms/forms/checkout-succes';
 
-const steps = ['Cliente', 'Vehiculo', 'Recepcion', 'Final'];
-const {formField} = formModel;
+const steps = ['Cliente', 'Vehiculo', 'Recepcion', 'Resumen'];
+const { formField } = formModel;
 
 const renderStepContent = (step: number) => {
   switch (step) {
     case 0:
       // @ts-ignore
-      return <UserForm formsField={formField}/>;
+      return <UserForm formsField={formField} />;
     case 1:
-      return <VehicleForm formsField={formField}/>;
+      return <VehicleForm formsField={formField} />;
     case 2:
-      return <RecepcionForm formsFields={formField}/>;
+      return <RecepcionForm formsFields={formField} />;
     case 3:
-      return <ReviewOrder/>
+      return <ReviewOrder />;
   }
 };
 
@@ -66,21 +76,21 @@ const CheckList: React.FC = () => {
     <div className={homeStyles.container}>
       <Head>
         <title>CheckList</title>
-        <meta name="description" content="Forms to validate user credentials"/>
-        <link rel="icon" href="/favicon.ico"/>
+        <meta name="description" content="Forms to validate user credentials" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={homeStyles.main}>
         <h3 className={homeStyles.title}>CheckList</h3>
         <Wrapper>
           <Stepper activeStep={activeStep} className={stylesF.stepper}>
             {steps.map((label, index) => (
-              <Step key={label} active={index === 0}>
+              <Step key={label} active={index >= 0}>
                 <StepLabel>{label}</StepLabel>
               </Step>
             ))}
           </Stepper>
           {activeStep === steps.length ? (
-            <CheckoutSucces/>
+            <CheckoutSucces />
           ) : (
             <Formik
               initialValues={initialValues}
@@ -91,7 +101,7 @@ const CheckList: React.FC = () => {
                 <Form>
                   {renderStepContent(activeStep)}
                   <div className={stylesF.buttons}>
-                    {activeStep === 0 && (
+                    {activeStep >= 1 && (
                       <Button
                         onClick={() => setActiveStep((prev) => prev - 1)}
                         className={stylesF.button}
@@ -109,7 +119,7 @@ const CheckList: React.FC = () => {
                       >
                         {isLast ? 'ENVIAR' : 'SIGUIENTE'}
                       </Button>
-                      {formikProps.isSubmitting && <CircularProgress/>}
+                      {formikProps.isSubmitting && <CircularProgress />}
                     </div>
                   </div>
                 </Form>

@@ -1,4 +1,4 @@
-import React, {useEffect, useReducer} from 'react';
+import React, { useEffect, useReducer } from 'react';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -6,7 +6,7 @@ import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import Link from 'next/link';
 import Router from 'next/router';
-import {userFormsStyles} from '../../../styles/userForms.styles';
+import { userFormsStyles } from '../../../styles/userForms.styles';
 
 //state type
 
