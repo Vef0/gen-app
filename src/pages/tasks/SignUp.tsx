@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
-import { createStyles, makeStyles } from '@mui/styles';
-import { Theme } from '@mui/material/styles';
-import { TextField, Button } from '@mui/material';
-import { Formik, Form, FormikProps } from 'formik';
+import React, {useState} from 'react';
+import {Button, TextField} from '@mui/material';
+import {Form, Formik, FormikProps} from 'formik';
 import * as Yup from 'yup';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Link from 'next/link';
-import { userForms } from '../../../styles/userForms.styles';
+import {userFormsStyles} from '../../../styles/userForms.styles';
 
 interface ISignUpForm {
   fullName: string;
@@ -43,7 +41,7 @@ const formStatusProps: IFormStatusProps = {
 };
 
 const SignUp: React.FunctionComponent = () => {
-  const classes = userForms();
+  const classes = userFormsStyles();
   const [displayFormStatus, setDisplayFormStatus] = useState(false);
   const [formStatus, setFormStatus] = useState<IFormStatus>({
     message: '',

@@ -1,6 +1,7 @@
 import { Theme } from '@mui/material/styles';
 import { makeStyles } from '@mui/styles';
-export const useAppStyles = makeStyles((theme: Theme) => ({
+
+export const checklistDisplayStyles = makeStyles((theme: Theme) => ({
   stepper: {
     padding: theme.spacing(3, 0, 5),
   },

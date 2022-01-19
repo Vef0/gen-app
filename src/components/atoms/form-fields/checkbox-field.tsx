@@ -36,6 +36,7 @@ const CheckBoxField: React.FC<PropsType> = (props) => {
         checked={field.checked}
         control={<Checkbox {...field} onChange={onChange}/>}
         label={label}
+        labelPlacement="start"
       />
     </FormControl>
   );

@@ -321,17 +321,20 @@ export default {
     },
     // ADICIONALES
     // RECEPCION DEL VEHICULO
-    inventarioV_ingreso: {
-      name: 'inventarioV_ingreso',
+    recepcionV_ingreso: {
+      name: 'recepcionV_ingreso',
       label: 'Ingreso del Vehiculo',
+      requiredErrorMessage: 'Ingrese la fecha de ingreso del vehiculo',
     },
-    inventarioV_hora_ingreso: {
-      name: 'inventarioV_hora_ingreso',
+    recepcionV_hora_ingreso: {
+      name: 'recepcionV_hora_ingreso',
       label: 'Hora de Ingreso del Vehiculo',
+      requiredErrorMessage: 'Ingrese la hora de ingreso del vehiculo',
     },
-    inventarioV_trabajador: {
-      name: 'inventarioV_trabajador',
+    recepcionV_trabajador: {
+      name: 'recepcionV_trabajador',
       label: 'Trabajador',
+      requiredErrorMessage: 'Ingrese el trabajador que ingreso el vehiculo',
     },
     // TRABAJOS
     trabajos: {

@@ -3,6 +3,7 @@ import model from './form-models';
 
 const {
   formField: {
+    // CLIENT
     client_name,
     client_address,
     client_R_D,
@@ -12,7 +13,7 @@ const {
     client_select,
     client_checkbox,
 
-    //Vehicle
+    // VEHICLE
     vehiculo_placa,
     vehiculo_marca,
     vehiculo_modelo,
@@ -22,6 +23,8 @@ const {
     vehiculo_combustible,
     vehiculo_personaRecojo,
     vehiculo_entrega,
+
+    // VEHICLE INVENTORY
     inventarioV_placa,
     inventarioV_parach_post,
     inventarioV_parachoques_del,
@@ -79,9 +82,13 @@ const {
     inventarioV_extintor,
     inventarioV_llanta_repuesto,
     inventarioV_otros,
-    inventarioV_ingreso,
-    inventarioV_hora_ingreso,
-    inventarioV_trabajador,
+
+    // RECEPCION DEL VEHICULO
+    recepcionV_ingreso,
+    recepcionV_hora_ingreso,
+    recepcionV_trabajador,
+
+    // TRABAJOS
     trabajos,
   },
 } = model;
@@ -164,10 +171,12 @@ export default {
   [inventarioV_botiquin.name]: false,
   [inventarioV_extintor.name]: false,
   [inventarioV_llanta_repuesto.name]: false,
-  [inventarioV_otros.name]: false,
-  [inventarioV_ingreso.name]: false,
-  [inventarioV_hora_ingreso.name]: false,
-  [inventarioV_trabajador.name]: false,
+  [inventarioV_otros.name]: '',
+
+  // RECEPCION VEHICULO
+  [recepcionV_ingreso.name]: '',
+  [recepcionV_hora_ingreso.name]: '',
+  [recepcionV_trabajador.name]: '',
 
   //TRABAJOS
   [trabajos.name]: '',

@@ -30,7 +30,7 @@ const clients = [
   },
 ];
 
-const UserForm: React.FC<PropsType> = (props) => {
+const ClientForm: React.FC<PropsType> = (props) => {
   const {
     formsField: {
       client_name,
@@ -119,4 +119,4 @@ const UserForm: React.FC<PropsType> = (props) => {
   );
 };
 
-export default UserForm;
+export default ClientForm;

@@ -1,36 +1,31 @@
-import {
-  Button,
-  CircularProgress,
-  Step,
-  StepLabel,
-  Stepper,
-  Typography,
-} from '@mui/material';
+import {Button, CircularProgress, Step, StepLabel, Stepper,} from '@mui/material';
 import Head from 'next/head';
-import stylesH from '../../styles/Home.module.css';
-import { Wrapper } from '../components/layout';
+import homeStyles from '../../styles/Home.module.css';
+import {Wrapper} from '../components/layout';
 import React from 'react';
-import { Form, Formik, FormikHelpers, FormikValues } from 'formik';
+import {Form, Formik, FormikHelpers, FormikValues} from 'formik';
 import initialValues from 'utils/initial-values';
-import { UserForm, VehicleForm } from '../components/organisms/forms';
+import {UserForm, VehicleForm, RecepcionForm} from '../components/organisms/forms';
 import formModel from '../utils/form-models';
 import validationSchema from 'utils/validation-schema';
-import { useAppStyles } from '../../styles/forms_d.styles';
+import {checklistDisplayStyles} from '../../styles/checklistDisplay.styles';
+import ReviewOrder from '../components/organisms/review-order';
+import CheckoutSucces from "../components/organisms/forms/checkout-succes";
 
-const steps = ['Cliente', 'Vehiculo', 'Trabajos', 'Final'];
-const { formField } = formModel;
+const steps = ['Cliente', 'Vehiculo', 'Recepcion', 'Final'];
+const {formField} = formModel;
 
 const renderStepContent = (step: number) => {
   switch (step) {
     case 0:
       // @ts-ignore
-      return <UserForm formField={formField} />;
+      return <UserForm formsField={formField}/>;
     case 1:
-      return <VehicleForm formsField={formField} />;
+      return <VehicleForm formsField={formField}/>;
     case 2:
-      return <VehicleForm formsField={formField} />;
+      return <RecepcionForm formsFields={formField}/>;
     case 3:
-      return <div>d</div>;
+      return <ReviewOrder/>
   }
 };
 
@@ -38,7 +33,7 @@ const CheckList: React.FC = () => {
   const [activeStep, setActiveStep] = React.useState(0);
   const selectValidationSchema = validationSchema[activeStep];
   const isLast = activeStep === steps.length - 1;
-  const stylesF = useAppStyles();
+  const stylesF = checklistDisplayStyles();
 
   const sleep = (time: number) => {
     return new Promise((resolve) => setTimeout(resolve, time));
@@ -68,14 +63,14 @@ const CheckList: React.FC = () => {
   };
 
   return (
-    <div className={stylesH.container}>
+    <div className={homeStyles.container}>
       <Head>
         <title>CheckList</title>
-        <meta name="description" content="Forms to validate user credentials" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="Forms to validate user credentials"/>
+        <link rel="icon" href="/favicon.ico"/>
       </Head>
-      <main className={stylesH.main}>
-        <h3 className={stylesH.title}>CheckList</h3>
+      <main className={homeStyles.main}>
+        <h3 className={homeStyles.title}>CheckList</h3>
         <Wrapper>
           <Stepper activeStep={activeStep} className={stylesF.stepper}>
             {steps.map((label, index) => (
@@ -85,7 +80,7 @@ const CheckList: React.FC = () => {
             ))}
           </Stepper>
           {activeStep === steps.length ? (
-            <div>aqui va el checkout</div>
+            <CheckoutSucces/>
           ) : (
             <Formik
               initialValues={initialValues}
@@ -112,9 +107,9 @@ const CheckList: React.FC = () => {
                         className={stylesF.button}
                         disabled={formikProps.isSubmitting}
                       >
-                        {isLast ? 'PASO FINAL' : 'SIGUIENTE'}
+                        {isLast ? 'ENVIAR' : 'SIGUIENTE'}
                       </Button>
-                      {formikProps.isSubmitting && <CircularProgress />}
+                      {formikProps.isSubmitting && <CircularProgress/>}
                     </div>
                   </div>
                 </Form>

@@ -1,6 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
-import { createStyles, makeStyles } from '@mui/styles';
-import { Theme } from '@mui/material/styles';
+import React, {useEffect, useReducer} from 'react';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -8,7 +6,7 @@ import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import Link from 'next/link';
 import Router from 'next/router';
-import { userForms } from '../../../styles/userForms.styles';
+import {userFormsStyles} from '../../../styles/userForms.styles';
 
 //state type
 
@@ -74,7 +72,7 @@ const reducer = (state: State, action: Action): State => {
 };
 
 const Login = () => {
-  const classes = userForms();
+  const classes = userFormsStyles();
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {

@@ -1,10 +1,9 @@
-import { Paper } from '@mui/material';
-import React, { ReactNode } from 'react';
-
-import { useStyle } from '../../../styles/global.styles';
+import {Paper} from '@mui/material';
+import React from 'react';
+import {userFormsStyles} from '../../../styles/userForms.styles';
 
 const Wrapper: React.FC = (props) => {
-  const styles = useStyle();
+  const styles = userFormsStyles();
   return (
     <div className={styles.root}>
       <Paper className={styles.paper}>{props.children}</Paper>
