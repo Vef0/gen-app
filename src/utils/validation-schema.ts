@@ -9,7 +9,7 @@ const {
     client_R_D,
     client_telephone,
     client_email,
-    client_vim,
+    client_vin,
 
     // VEHICLE
     vehiculo_placa,
@@ -45,9 +45,9 @@ const validationSchema = [
     [client_email.name]: yup
       .string()
       .required(`${client_email.requiredErrorMessage}`),
-    [client_vim.name]: yup
+    [client_vin.name]: yup
       .string()
-      .required(`${client_vim.requiredErrorMessage}`),
+      .required(`${client_vin.requiredErrorMessage}`),
   }),
   yup.object().shape({
     [vehiculo_placa.name]: yup

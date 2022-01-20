@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
 import { FormikValues } from 'formik';
-import { InputField } from '../../atoms/form-fields';
+import { InputField, DatePicker } from '../../atoms/form-fields';
 import React from 'react';
 
 interface PropsType {
@@ -31,6 +31,7 @@ const RecepcionForm: React.FC<PropsType> = (props) => {
               fullWidth: true,
             }}
           />
+          <DatePicker />
         </Grid>
       </Grid>
     </div>

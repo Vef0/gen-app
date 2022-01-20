@@ -9,7 +9,7 @@ const {
     client_R_D,
     client_telephone,
     client_email,
-    client_vim,
+    client_vin,
 
     // VEHICLE
     vehiculo_placa,
@@ -104,7 +104,7 @@ export default {
   [client_R_D.name]: '',
   [client_telephone.name]: '',
   [client_email.name]: '',
-  [client_vim.name]: '',
+  [client_vin.name]: '',
 
   //VEHICULO
   [vehiculo_placa.name]: '',

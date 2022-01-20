@@ -27,10 +27,10 @@ export default {
       label: 'Email',
       requiredErrorMessage: 'El email del cliente es obligatorio',
     },
-    client_vim: {
-      name: 'client_vim',
-      label: 'Serie VIM',
-      requiredErrorMessage: 'La serie VIM del cliente es obligatoria',
+    client_vin: {
+      name: 'client_vin',
+      label: 'Serie VIN',
+      requiredErrorMessage: 'La serie VIN del cliente es obligatoria',
     },
 
     // VEHICLE

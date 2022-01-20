@@ -1,6 +1,6 @@
-import {Grid} from '@mui/material';
-import {InputField,} from 'components/atoms/form-fields';
-import {FormikValues} from 'formik';
+import { Grid } from '@mui/material';
+import { InputField } from 'components/atoms/form-fields';
+import { FormikValues } from 'formik';
 import React from 'react';
 
 interface PropsType {
@@ -15,7 +15,7 @@ const ClientForm: React.FC<PropsType> = (props) => {
       client_R_D,
       client_telephone,
       client_email,
-      client_vim,
+      client_vin,
     },
   } = props;
   return (
@@ -69,8 +69,8 @@ const ClientForm: React.FC<PropsType> = (props) => {
         <Grid item xs={12} sm={6}>
           <InputField
             defaultProps={{
-              name: client_vim.name,
-              label: client_vim.label,
+              name: client_vin.name,
+              label: client_vin.label,
               fullWidth: true,
             }}
           />

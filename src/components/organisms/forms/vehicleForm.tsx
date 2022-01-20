@@ -1,5 +1,9 @@
 import { Grid } from '@mui/material';
-import { CheckBoxField, InputField } from 'components/atoms/form-fields';
+import {
+  CheckBoxField,
+  InputField,
+  DatePicker,
+} from 'components/atoms/form-fields';
 import { FormikValues } from 'formik';
 import React from 'react';
 
@@ -100,12 +104,9 @@ const VehicleForm: React.FC<PropsType> = (props) => {
           />
         </Grid>
         <Grid item xs={12}>
-          <InputField
-            defaultProps={{
-              name: vehiculo_entrega_estimada.name,
-              label: vehiculo_entrega_estimada.label,
-              fullWidth: true,
-            }}
+          <DatePicker
+            name={vehiculo_entrega_estimada.name}
+            label={vehiculo_entrega_estimada.label}
           />
         </Grid>
       </Grid>
