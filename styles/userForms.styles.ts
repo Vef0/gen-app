@@ -39,13 +39,12 @@ export const userFormsStyles = makeStyles((theme: Theme) => ({
     marginTop: theme.spacing(0),
   },
   root: {
-    width: "auto",
-    marginLeft: theme.spacing(2),
-    marginRight: theme.spacing(2),
+    width: 'auto',
+    margin: theme.spacing(4),
     [theme.breakpoints.up(600 + +theme.spacing(2) * 2)]: {
       width: 600,
-      marginLeft: "auto",
-      marginRight: "auto",
+      marginLeft: 'auto',
+      marginRight: 'auto',
     },
   },
   paper: {
@@ -58,5 +57,4 @@ export const userFormsStyles = makeStyles((theme: Theme) => ({
       padding: theme.spacing(3),
     },
   },
-
 }));

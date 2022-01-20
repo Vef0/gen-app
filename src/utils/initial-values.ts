@@ -11,7 +11,6 @@ const {
     client_email,
     client_vim,
 
-
     // VEHICLE
     vehiculo_placa,
     vehiculo_marca,
@@ -21,7 +20,7 @@ const {
     vehiculo_kilometraje,
     vehiculo_combustible,
     vehiculo_personaRecojo,
-    vehiculo_entrega,
+    vehiculo_entrega_estimada,
 
     // VEHICLE INVENTORY
     inventarioV_placa,
@@ -83,12 +82,19 @@ const {
     inventarioV_otros,
 
     // RECEPCION DEL VEHICULO
-    recepcionV_ingreso,
-    recepcionV_hora_ingreso,
+    recepcionV_fecha,
     recepcionV_trabajador,
 
     // TRABAJOS
-    trabajos,
+    trabajo_one,
+    trabajo_two,
+    trabajo_three,
+    trabajo_four,
+    trabajo_five,
+    trabajo_six,
+    trabajo_seven,
+    trabajo_eight,
+    trabajo_nine,
   },
 } = model;
 
@@ -109,7 +115,7 @@ export default {
   [vehiculo_kilometraje.name]: '',
   [vehiculo_combustible.name]: '',
   [vehiculo_personaRecojo.name]: '',
-  [vehiculo_entrega.name]: '',
+  [vehiculo_entrega_estimada.name]: '',
 
   //VEHICULO INVENTARIO
   [inventarioV_placa.name]: false,
@@ -171,10 +177,17 @@ export default {
   [inventarioV_otros.name]: '',
 
   // RECEPCION VEHICULO
-  [recepcionV_ingreso.name]: '',
-  [recepcionV_hora_ingreso.name]: '',
+  [recepcionV_fecha.name]: '',
   [recepcionV_trabajador.name]: '',
 
   //TRABAJOS
-  [trabajos.name]: '',
+  [trabajo_one.name]: '',
+  [trabajo_two.name]: '',
+  [trabajo_three.name]: '',
+  [trabajo_four.name]: '',
+  [trabajo_five.name]: '',
+  [trabajo_six.name]: '',
+  [trabajo_seven.name]: '',
+  [trabajo_eight.name]: '',
+  [trabajo_nine.name]: '',
 };

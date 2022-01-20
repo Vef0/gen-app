@@ -11,7 +11,7 @@ const {
     client_email,
     client_vim,
 
-    //VEHICLE
+    // VEHICLE
     vehiculo_placa,
     vehiculo_marca,
     vehiculo_modelo,
@@ -20,7 +20,11 @@ const {
     vehiculo_kilometraje,
     vehiculo_combustible,
     vehiculo_personaRecojo,
-    vehiculo_entrega,
+    vehiculo_entrega_estimada,
+
+    // ENTREGA
+    recepcionV_fecha,
+    recepcionV_trabajador,
   },
 } = formModel;
 
@@ -70,9 +74,17 @@ const validationSchema = [
     [vehiculo_personaRecojo.name]: yup
       .string()
       .required(`${vehiculo_personaRecojo.requiredErrorMessage}`),
-    [vehiculo_entrega.name]: yup
+    [vehiculo_entrega_estimada.name]: yup
       .string()
-      .required(`${vehiculo_entrega.requiredErrorMessage}`),
+      .required(`${vehiculo_entrega_estimada.requiredErrorMessage}`),
+  }),
+  yup.object().shape({
+    [recepcionV_fecha.name]: yup
+      .string()
+      .required(`${recepcionV_fecha.requiredErrorMessage}`),
+    [recepcionV_trabajador.name]: yup
+      .string()
+      .required(`${recepcionV_trabajador.requiredErrorMessage}`),
   }),
 ];
 export default validationSchema;

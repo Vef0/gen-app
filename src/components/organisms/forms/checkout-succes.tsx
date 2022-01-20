@@ -18,16 +18,6 @@ const CheckoutSucces = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
           voluptas commodi repudiandae quam dicta. .
         </p>
-        <Link href="/" passHref>
-          <Button
-            variant="contained"
-            size="medium"
-            color="primary"
-            className={classes.backBtn}
-          >
-            Salir
-          </Button>
-        </Link>
       </Grid>
     </div>
   );

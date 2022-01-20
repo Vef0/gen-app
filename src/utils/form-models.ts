@@ -4,33 +4,33 @@ export default {
   formField: {
     client_name: {
       name: 'client_name',
-      label: 'Client Name',
-      requiredErrorMessage: 'Client Name is required',
+      label: 'Nombre del Cliente',
+      requiredErrorMessage: 'El nombre del cliente es obligatorio',
     },
     client_address: {
       name: 'client_address',
-      label: 'Address',
-      requiredErrorMessage: 'Client Address is required',
+      label: 'Direccion',
+      requiredErrorMessage: 'La direccion del cliente es obligatoria',
     },
     client_R_D: {
       name: 'client_R_D',
       label: 'RUC / DNI',
-      requiredErrorMessage: 'Client RUC / DNI is required',
+      requiredErrorMessage: 'El RUC o DNI del cliente es obligatorio',
     },
     client_telephone: {
       name: 'client_telephone',
-      label: 'Telephone',
-      requiredErrorMessage: 'Client Telephone is required',
+      label: 'Telefono',
+      requiredErrorMessage: 'El telefono del cliente es obligatorio',
     },
     client_email: {
       name: 'client_email',
       label: 'Email',
-      requiredErrorMessage: 'Client Email is required',
+      requiredErrorMessage: 'El email del cliente es obligatorio',
     },
     client_vim: {
       name: 'client_vim',
-      label: 'VIM',
-      requiredErrorMessage: 'Client VIM is required',
+      label: 'Serie VIM',
+      requiredErrorMessage: 'La serie VIM del cliente es obligatoria',
     },
 
     // VEHICLE
@@ -75,10 +75,10 @@ export default {
       label: 'Persona Recojo',
       requiredErrorMessage: 'La Persona de Recojo del vehiculo es obligatoria',
     },
-    vehiculo_entrega: {
-      name: 'vehiculo_entrega',
-      label: 'Entrega',
-      requiredErrorMessage: 'La Entrega del vehiculo es obligatoria',
+    vehiculo_entrega_estimada: {
+      name: 'vehiculo_entrega_estimada',
+      label: 'Entrega Estimada',
+      requiredErrorMessage: 'La Entrega estimada del vehiculo es obligatoria',
     },
     // INVENTARIO VEHICULO
     inventarioV_placa: {
@@ -312,16 +312,12 @@ export default {
       label: 'Otros',
     },
     // ADICIONALES
+
     // RECEPCION DEL VEHICULO
-    recepcionV_ingreso: {
+    recepcionV_fecha: {
       name: 'recepcionV_ingreso',
       label: 'Ingreso del Vehiculo',
-      requiredErrorMessage: 'Ingrese la fecha de ingreso del vehiculo',
-    },
-    recepcionV_hora_ingreso: {
-      name: 'recepcionV_hora_ingreso',
-      label: 'Hora de Ingreso del Vehiculo',
-      requiredErrorMessage: 'Ingrese la hora de ingreso del vehiculo',
+      requiredErrorMessage: 'Ingrese la fecha-hora de ingreso del vehiculo',
     },
     recepcionV_trabajador: {
       name: 'recepcionV_trabajador',
@@ -329,10 +325,41 @@ export default {
       requiredErrorMessage: 'Ingrese el trabajador que ingreso el vehiculo',
     },
     // TRABAJOS
-    trabajos: {
-      name: 'trabajos',
-      label: 'Trabajos',
-      requiredErrorMessage: 'Debe ingresar al menos un trabajo',
+    trabajo_one: {
+      name: 'trabajo_one',
+      label: 'Trabajo Uno',
+    },
+    trabajo_two: {
+      name: 'trabajo_two',
+      label: 'Trabajo Dos',
+    },
+    trabajo_three: {
+      name: 'trabajo_three',
+      label: 'Trabajo Tres',
+    },
+    trabajo_four: {
+      name: 'trabajo_four',
+      label: 'Trabajo Cuatro',
+    },
+    trabajo_five: {
+      name: 'trabajo_five',
+      label: 'Trabajo Cinco',
+    },
+    trabajo_six: {
+      name: 'trabajo_six',
+      label: 'Trabajo Seis',
+    },
+    trabajo_seven: {
+      name: 'trabajo_seven',
+      label: 'Trabajo Siete',
+    },
+    trabajo_eight: {
+      name: 'trabajo_eight',
+      label: 'Trabajo Ocho',
+    },
+    trabajo_nine: {
+      name: 'trabajo_nine',
+      label: 'Trabajo Nueve',
     },
   },
 };

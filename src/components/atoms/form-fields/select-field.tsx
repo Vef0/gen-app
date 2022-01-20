@@ -1,10 +1,22 @@
-import {FormControl, FormHelperText, InputLabel, MenuItem, Select,} from '@mui/material';
-import {useField} from 'formik';
-import {at} from 'lodash';
+import {
+  FormControl,
+  FormHelperText,
+  InputLabel,
+  MenuItem,
+  Select,
+  Typography,
+} from '@mui/material';
+import { useField } from 'formik';
+import { at } from 'lodash';
 import React from 'react';
 
 interface PropsType {
-  data: Array<{ label: string; value: string }>;
+  data: Array<{
+    label: string;
+    value: string;
+    price: string;
+    encargado: string;
+  }>;
   label: string;
   name: string;
   fullWidth?: boolean;
@@ -26,13 +38,12 @@ const SelectField: React.FC<PropsType> = (props) => {
   return (
     <FormControl {...rest} variant="standard" error={isError}>
       <InputLabel>{label}</InputLabel>
-      <Select
-        {...field}
-        value={selectedValue ? selectedValue : ''}
-      >
+      <Select {...field} value={selectedValue ? selectedValue : ''}>
         {data.map((item, index) => (
           <MenuItem key={index} value={item.value}>
-            {item.label}
+            {item.value === ''
+              ? item.label
+              : `${item.label} - Precio: ${item.price} - Encargado: ${item.encargado}`}
           </MenuItem>
         ))}
       </Select>

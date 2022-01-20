@@ -95,7 +95,7 @@ const Login = () => {
         type: 'loginSuccess',
         payload: 'Ingreso exitoso',
       });
-      Router.push('../checklist').then(() => {
+      Router.push('../orderOptions').then(() => {
         console.log('redirected');
       });
     } else {

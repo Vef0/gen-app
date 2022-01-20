@@ -1,6 +1,6 @@
-import {Grid} from '@mui/material';
-import {CheckBoxField, InputField} from 'components/atoms/form-fields';
-import {FormikValues} from 'formik';
+import { Grid } from '@mui/material';
+import { CheckBoxField, InputField } from 'components/atoms/form-fields';
+import { FormikValues } from 'formik';
 import React from 'react';
 
 interface PropsType {
@@ -19,14 +19,13 @@ const VehicleForm: React.FC<PropsType> = (props) => {
       vehiculo_kilometraje,
       vehiculo_combustible,
       vehiculo_personaRecojo,
-      vehiculo_entrega,
+      vehiculo_entrega_estimada,
     },
   } = props;
 
-
   return (
     <div>
-      <Grid container spacing={3} sx={{p: 2}}>
+      <Grid container spacing={3} sx={{ p: 2 }}>
         {/*VEHICLE TEXTFIELDS*/}
         <Grid item xs={12} sm={6}>
           <InputField
@@ -103,14 +102,12 @@ const VehicleForm: React.FC<PropsType> = (props) => {
         <Grid item xs={12}>
           <InputField
             defaultProps={{
-              name: vehiculo_entrega.name,
-              label: vehiculo_entrega.label,
+              name: vehiculo_entrega_estimada.name,
+              label: vehiculo_entrega_estimada.label,
               fullWidth: true,
             }}
           />
         </Grid>
-
-
       </Grid>
     </div>
   );
