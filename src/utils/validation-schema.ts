@@ -10,7 +10,6 @@ const {
     client_telephone,
     client_email,
     client_vim,
-    client_select,
 
     //VEHICLE
     vehiculo_placa,
@@ -45,9 +44,6 @@ const validationSchema = [
     [client_vim.name]: yup
       .string()
       .required(`${client_vim.requiredErrorMessage}`),
-    [client_select.name]: yup
-      .string()
-      .required(`${client_select.requiredErrorMessage}`),
   }),
   yup.object().shape({
     [vehiculo_placa.name]: yup

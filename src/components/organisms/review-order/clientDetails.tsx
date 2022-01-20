@@ -1,6 +1,9 @@
-import { Grid, Stack, Typography } from '@mui/material';
-import { reviewOrderStyles } from '../../../../styles/reviewOrder.styles';
-function ClientDetails(props: any) {
+import {Stack, Typography} from '@mui/material';
+import {reviewOrderStyles} from '../../../../styles/reviewOrder.styles';
+import React from "react";
+import {FormikValues} from "formik";
+
+const ClientDetails: React.FC<FormikValues> = (props) => {
   const {
     formValues: {
       client_name,

@@ -1,34 +1,11 @@
-import { Grid } from '@mui/material';
-import {
-  CheckBoxField,
-  InputField,
-  SelectField,
-} from 'components/atoms/form-fields';
-import { FormikValues } from 'formik';
+import {Grid} from '@mui/material';
+import {InputField,} from 'components/atoms/form-fields';
+import {FormikValues} from 'formik';
 import React from 'react';
 
 interface PropsType {
   formsField: FormikValues;
 }
-
-const clients = [
-  {
-    value: '',
-    label: '- - Seleccione uno - -',
-  },
-  {
-    value: '1',
-    label: 'Cliente 1',
-  },
-  {
-    value: '2',
-    label: 'Cliente 2',
-  },
-  {
-    value: '3',
-    label: 'Cliente 3',
-  },
-];
 
 const ClientForm: React.FC<PropsType> = (props) => {
   const {
@@ -39,8 +16,6 @@ const ClientForm: React.FC<PropsType> = (props) => {
       client_telephone,
       client_email,
       client_vim,
-      client_select,
-      client_checkbox,
     },
   } = props;
   return (
@@ -98,20 +73,6 @@ const ClientForm: React.FC<PropsType> = (props) => {
               label: client_vim.label,
               fullWidth: true,
             }}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <SelectField
-            name={client_select.name}
-            label={client_select.label}
-            data={clients}
-            fullWidth
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <CheckBoxField
-            name={client_checkbox.name}
-            label={client_checkbox.label}
           />
         </Grid>
       </Grid>

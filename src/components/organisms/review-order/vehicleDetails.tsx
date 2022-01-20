@@ -1,12 +1,10 @@
-import { Grid, Stack, Typography } from '@mui/material';
-import { FormikValues } from 'formik';
-import { reviewOrderStyles } from '../../../../styles/reviewOrder.styles';
+import {Stack, Typography} from '@mui/material';
+import {FormikValues} from 'formik';
+import {reviewOrderStyles} from '../../../../styles/reviewOrder.styles';
+import React from "react";
 
-interface PropsType {
-  formValues: FormikValues;
-}
 
-const VehicleDetails: React.FC<PropsType> = (props) => {
+const VehicleDetails: React.FC<FormikValues> = (props) => {
   const {
     formValues: {
       // VEHICLE
@@ -44,21 +42,21 @@ const VehicleDetails: React.FC<PropsType> = (props) => {
       >
         <Typography gutterBottom>{`Placa: ${vehiculo_placa}`}</Typography>
         <Typography gutterBottom>{`Marca: ${vehiculo_marca}`}</Typography>
-        <Typography gutterBottom>{`Marca: ${vehiculo_modelo}`}</Typography>
-        <Typography gutterBottom>{`Marca: ${vehiculo_annio}`}</Typography>
-        <Typography gutterBottom>{`Marca: ${vehiculo_color}`}</Typography>
-        <Typography gutterBottom>{`Marca: ${vehiculo_kilometraje}`}</Typography>
-        <Typography gutterBottom>{`Marca: ${vehiculo_combustible}`}</Typography>
+        <Typography gutterBottom>{`Modelo: ${vehiculo_modelo}`}</Typography>
+        <Typography gutterBottom>{`Ano: ${vehiculo_annio}`}</Typography>
+        <Typography gutterBottom>{`Color: ${vehiculo_color}`}</Typography>
+        <Typography gutterBottom>{`Kilometraje: ${vehiculo_kilometraje}`}</Typography>
+        <Typography gutterBottom>{`Combustible: ${vehiculo_combustible}`}</Typography>
         <Typography
           gutterBottom
         >{`Marca: ${vehiculo_personaRecojo}`}</Typography>
         <Typography gutterBottom>{`Marca: ${vehiculo_entrega}`}</Typography>
 
         <Typography gutterBottom>{`Placa : ${
-          inventarioV_placa === true ? 'SI' : 'NO'
+          inventarioV_placa === false ? 'NO' : 'SI'
         }`}</Typography>
         <Typography gutterBottom>{`Parachoques: ${
-          inventarioV_parach_post === true ? 'SI' : 'NO'
+          inventarioV_parach_post === false ? 'NO' : 'SI'
         }`}</Typography>
       </Stack>
     </div>

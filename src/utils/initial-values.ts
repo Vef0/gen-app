@@ -10,8 +10,7 @@ const {
     client_telephone,
     client_email,
     client_vim,
-    client_select,
-    client_checkbox,
+
 
     // VEHICLE
     vehiculo_placa,
@@ -100,8 +99,6 @@ export default {
   [client_telephone.name]: '',
   [client_email.name]: '',
   [client_vim.name]: '',
-  [client_select.name]: '',
-  [client_checkbox.name]: false,
 
   //VEHICULO
   [vehiculo_placa.name]: '',

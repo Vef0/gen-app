@@ -12,7 +12,7 @@ interface PropsType {
 
 const SelectField: React.FC<PropsType> = (props) => {
   const { label, data, ...rest } = props;
-  const [field, meta, helper] = useField(props);
+  const [field, meta] = useField(props);
   const { value: selectedValue } = field;
   const [touched, error] = at(meta, 'touched', 'error');
   const isError = touched && error;

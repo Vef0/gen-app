@@ -32,15 +32,7 @@ export default {
       label: 'VIM',
       requiredErrorMessage: 'Client VIM is required',
     },
-    client_select: {
-      name: 'client_select',
-      label: 'Client Select',
-      requiredErrorMessage: 'Client Select is required',
-    },
-    client_checkbox: {
-      name: 'client_checkbox',
-      label: 'Client Checkbox',
-    },
+
     // VEHICLE
     vehiculo_placa: {
       name: 'vehiculo_placa',

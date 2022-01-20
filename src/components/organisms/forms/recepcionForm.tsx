@@ -4,11 +4,11 @@ import {InputField} from "../../atoms/form-fields";
 import React from "react";
 
 interface PropsType {
-  formsFields: FormikValues;
+  formsField: FormikValues;
 }
 
 const RecepcionForm: React.FC<PropsType> = (props) => {
-  const {formsFields: {
+  const {formsField: {
     recepcionV_ingreso,
     recepcionV_hora_ingreso,
     recepcionV_trabajador,
