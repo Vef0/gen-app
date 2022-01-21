@@ -2,6 +2,11 @@
 export default {
   formId: 'checkoutForm',
   formField: {
+    nro_orden: {
+      name: 'nro_orden',
+      label: 'Nro. Orden',
+      requiredErrorMessage: 'El Nro. de orden es obligatorio',
+    },
     client_name: {
       name: 'client_name',
       label: 'Nombre del Cliente',

@@ -3,6 +3,7 @@ import formModel from './form-models';
 
 const {
   formField: {
+    nro_orden,
     // CLIENT
     client_name,
     client_address,
@@ -30,6 +31,9 @@ const {
 
 const validationSchema = [
   yup.object().shape({
+    [nro_orden.name]: yup
+      .string()
+      .required(`${nro_orden.requiredErrorMessage}`),
     [client_name.name]: yup
       .string()
       .required(`${client_name.requiredErrorMessage}`),

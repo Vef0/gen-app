@@ -10,6 +10,7 @@ interface PropsType {
 const ClientForm: React.FC<PropsType> = (props) => {
   const {
     formsField: {
+      nro_orden,
       client_name,
       client_address,
       client_R_D,
@@ -21,6 +22,15 @@ const ClientForm: React.FC<PropsType> = (props) => {
   return (
     <div>
       <Grid container spacing={3} sx={{ p: 2 }}>
+        <Grid item xs={12} sm={6}>
+          <InputField
+            defaultProps={{
+              name: nro_orden.name,
+              label: nro_orden.label,
+              fullWidth: true,
+            }}
+          />
+        </Grid>
         <Grid item xs={12} sm={6}>
           <InputField
             defaultProps={{
@@ -66,7 +76,7 @@ const ClientForm: React.FC<PropsType> = (props) => {
             }}
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12}>
           <InputField
             defaultProps={{
               name: client_vin.name,

@@ -12,7 +12,7 @@ const OrderOptions = () => {
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             </a>
           </Link>
-          <Link href="/">
+          <Link href="../clienteConstancia">
             <a className={styles.card}>
               <h2>Buscar Orden &rarr;</h2>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>

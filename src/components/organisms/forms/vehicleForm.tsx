@@ -107,6 +107,7 @@ const VehicleForm: React.FC<PropsType> = (props) => {
           <DatePicker
             name={vehiculo_entrega_estimada.name}
             label={vehiculo_entrega_estimada.label}
+            fullWidth
           />
         </Grid>
       </Grid>

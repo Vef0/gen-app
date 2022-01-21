@@ -18,6 +18,7 @@ const RecepcionForm: React.FC<PropsType> = (props) => {
           <DatePicker
             name={recepcionV_fecha.name}
             label={recepcionV_fecha.label}
+            fullWidth
           />
         </Grid>
         <Grid item xs={12}>

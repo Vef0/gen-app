@@ -1,7 +1,7 @@
-import {Stack, Typography} from '@mui/material';
-import {reviewOrderStyles} from '../../../../styles/reviewOrder.styles';
-import React from "react";
-import {FormikValues} from "formik";
+import { Stack, Typography } from '@mui/material';
+import { reviewOrderStyles } from '../../../../styles/reviewOrder.styles';
+import React from 'react';
+import { FormikValues } from 'formik';
 
 const ClientDetails: React.FC<FormikValues> = (props) => {
   const {
@@ -11,7 +11,7 @@ const ClientDetails: React.FC<FormikValues> = (props) => {
       client_R_D,
       client_telephone,
       client_email,
-      client_vim,
+      client_vin,
     },
   } = props;
 
@@ -36,10 +36,10 @@ const ClientDetails: React.FC<FormikValues> = (props) => {
         >{`RD: ${client_R_D} - Telefono: ${client_telephone}`}</Typography>
         <Typography
           gutterBottom
-        >{`Email: ${client_email} - VIM: ${client_vim}`}</Typography>
+        >{`Email: ${client_email} - VIM: ${client_vin}`}</Typography>
       </Stack>
     </div>
   );
-}
+};
 
 export default ClientDetails;

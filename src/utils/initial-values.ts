@@ -3,6 +3,7 @@ import model from './form-models';
 
 const {
   formField: {
+    nro_orden,
     // CLIENT
     client_name,
     client_address,
@@ -99,6 +100,7 @@ const {
 } = model;
 
 export default {
+  [nro_orden.name]: '',
   [client_name.name]: '',
   [client_address.name]: '',
   [client_R_D.name]: '',
