@@ -23,6 +23,7 @@ const VehicleDetails: React.FC<FormikValues> = (props) => {
       inventarioV_parach_post,
       inventarioV_parachoques_del,
       inventarioV_parabrisas,
+      recepcionV_fecha
     },
   } = props;
 
@@ -40,6 +41,7 @@ const VehicleDetails: React.FC<FormikValues> = (props) => {
         alignItems="stretch"
         spacing={2}
       >
+        <Typography gutterBottom>{`FECHA: ${recepcionV_fecha}`}</Typography>
         <Typography gutterBottom>{`Placa: ${vehiculo_placa}`}</Typography>
         <Typography gutterBottom>{`Marca: ${vehiculo_marca}`}</Typography>
         <Typography gutterBottom>{`Modelo: ${vehiculo_modelo}`}</Typography>

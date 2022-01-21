@@ -2,16 +2,18 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateTimePicker from '@mui/lab/DateTimePicker';
 import TextField from '@mui/material/TextField';
-import React, { useEffect } from 'react';
-import { FieldHookConfig, useField } from 'formik';
+import React, {useEffect} from 'react';
+import {useField} from 'formik';
+import {MobileDateTimePicker} from '@mui/lab';
 
 //@ts-ignore
 const DatePicker = (props) => {
   const [field, meta, helper] = useField(props);
-  const { touched, error } = meta;
-  const { setValue } = helper;
-  const isError = touched && error && true;
-  const { value } = field;
+  const {label} = props;
+  const {touched, error} = meta;
+  const {setValue} = helper;
+  const isError = touched && error;
+  const {value} = field;
 
   const [selectedDate, setSelectedDate] = React.useState<Date | null>(
     new Date()
@@ -39,11 +41,11 @@ const DatePicker = (props) => {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <DateTimePicker
+      <MobileDateTimePicker
         renderInput={(params) => (
-          <TextField {...params} helperText="Entrega Estimada" />
+          <TextField {...params} helperText="Elija uan fecha y hora"/>
         )}
-        label="DateTimePicker"
+        label={label}
         value={selectedDate}
         onChange={handleChange}
       />

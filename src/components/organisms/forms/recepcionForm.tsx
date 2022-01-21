@@ -14,13 +14,10 @@ const RecepcionForm: React.FC<PropsType> = (props) => {
   return (
     <div>
       <Grid container spacing={3} sx={{ p: 2 }}>
-        <Grid item xs={12} sm={6}>
-          <InputField
-            defaultProps={{
-              name: recepcionV_fecha.name,
-              label: recepcionV_fecha.label,
-              fullWidth: true,
-            }}
+        <Grid item xs={12}>
+          <DatePicker
+            name={recepcionV_fecha.name}
+            label={recepcionV_fecha.label}
           />
         </Grid>
         <Grid item xs={12}>
@@ -31,7 +28,6 @@ const RecepcionForm: React.FC<PropsType> = (props) => {
               fullWidth: true,
             }}
           />
-          <DatePicker />
         </Grid>
       </Grid>
     </div>
