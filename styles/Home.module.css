@@ -1,5 +1,5 @@
 .container {
-  padding: 0 2rem;
+  padding: 0 3rem;
 }
 
 .main {
@@ -13,7 +13,8 @@
 }
 
 .main h3 {
-  font-size: 3rem;
+  padding-top: 2rem;
+  font-size: 2rem;
 }
 
 .footer {

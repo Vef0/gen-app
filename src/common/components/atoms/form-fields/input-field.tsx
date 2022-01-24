@@ -22,6 +22,7 @@ const InputField: React.FC<PropsType> = (props) => {
 
   return (
     <TextField
+      autocomplete="off"
       type="text"
       // @ts-ignore for error receive string instead of boolean but still working
       error={meta.touched && meta.error}

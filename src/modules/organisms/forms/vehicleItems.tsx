@@ -1,7 +1,7 @@
 import {FormikValues} from "formik";
 import React from "react";
 import {Grid} from "@mui/material";
-import {CheckBoxField, InputField} from "../../atoms/form-fields";
+import {CheckBoxField, InputField} from "../../../common/components/atoms/form-fields";
 
 interface PropsType {
   formsField: FormikValues

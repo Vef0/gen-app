@@ -3,7 +3,6 @@ import {FormikValues} from 'formik';
 import {reviewOrderStyles} from '../../../../styles/reviewOrder.styles';
 import React from "react";
 
-
 const VehicleDetails: React.FC<FormikValues> = (props) => {
   const {
     formValues: {

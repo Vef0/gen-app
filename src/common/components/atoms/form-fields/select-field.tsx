@@ -41,9 +41,7 @@ const SelectField: React.FC<PropsType> = (props) => {
       <Select {...field} value={selectedValue ? selectedValue : ''}>
         {data.map((item, index) => (
           <MenuItem key={index} value={item.value}>
-            {item.value === ''
-              ? item.label
-              : `${item.label} - Precio: ${item.price} - Encargado: ${item.encargado}`}
+            {item.label}
           </MenuItem>
         ))}
       </Select>

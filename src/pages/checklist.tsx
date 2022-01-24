@@ -7,22 +7,22 @@ import {
 } from '@mui/material';
 import Head from 'next/head';
 import homeStyles from '../../styles/Home.module.css';
-import { Wrapper } from '../components/layout';
+import { Wrapper } from '../common/components/layout';
 import React from 'react';
 import { Form, Formik, FormikHelpers, FormikValues } from 'formik';
-import initialValues from 'utils/initial-values';
+import initialValues from 'common/utils/initial-values';
 import {
-  UserForm,
+  ClientForm,
   VehicleForm,
   RecepcionForm,
   VehicleItems,
   Trabajos,
-} from '../components/organisms/forms';
-import formModel from '../utils/form-models';
-import validationSchema from 'utils/validation-schema';
+} from '../modules/organisms/forms';
+import formModel from '../common/utils/form-models';
+import validationSchema from 'common/utils/validation-schema';
 import { checklistDisplayStyles } from '../../styles/checklistDisplay.styles';
-import ReviewOrder from '../components/organisms/review-order';
-import CheckoutSucces from '../components/organisms/forms/checkout-succes';
+import ReviewOrder from '../modules/organisms/review-order';
+import CheckoutSucces from '../modules/organisms/forms/checkout-succes';
 import Link from 'next/link';
 import { userFormsStyles } from '../../styles/userForms.styles';
 
@@ -40,7 +40,7 @@ const renderStepContent = (step: number) => {
   switch (step) {
     case 0:
       // @ts-ignore
-      return <UserForm formsField={formField} />;
+      return <ClientForm formsField={formField} />;
     case 1:
       return <VehicleForm formsField={formField} />;
     case 2:

@@ -3,7 +3,7 @@ import {
   CheckBoxField,
   InputField,
   DatePicker,
-} from 'components/atoms/form-fields';
+} from 'common/components/atoms/form-fields';
 import { FormikValues } from 'formik';
 import React from 'react';
 

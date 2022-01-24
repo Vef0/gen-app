@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
 import { FormikValues } from 'formik';
-import { InputField, DatePicker } from '../../atoms/form-fields';
+import { InputField, DatePicker } from '../../../common/components/atoms/form-fields';
 import React from 'react';
 
 interface PropsType {

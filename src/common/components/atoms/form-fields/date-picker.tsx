@@ -1,14 +1,6 @@
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DateTimePicker from '@mui/lab/DateTimePicker';
-import TextField from '@mui/material/TextField';
-import React, { useEffect, useState } from 'react';
-import { useField } from 'formik';
-import { MobileDateTimePicker } from '@mui/lab';
-import {
-  MuiPickersUtilsProvider,
-  KeyboardDateTimePicker,
-} from '@material-ui/pickers';
+import React, {useEffect, useState} from 'react';
+import {useField} from 'formik';
+import {KeyboardDateTimePicker, MuiPickersUtilsProvider,} from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 
 //@ts-ignore
@@ -16,7 +8,7 @@ const DatePicker = (props) => {
   const [field, meta, helper] = useField(props);
   const { touched, error } = meta;
   const { setValue } = helper;
-  const isError = touched && error && true;
+  const isError = !!(touched && error);
   const { value } = field;
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -45,6 +37,8 @@ const DatePicker = (props) => {
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <KeyboardDateTimePicker
+        {...field}
+        {...props}
         value={selectedDate}
         onChange={onChange}
         error={isError}

@@ -1,7 +1,7 @@
 import { FormikValues } from 'formik';
 import React from 'react';
 import { Grid, Stack, Typography } from '@mui/material';
-import { SelectField } from '../../atoms/form-fields';
+import { SelectField } from '../../../common/components/atoms/form-fields';
 
 interface PropsType {
   formsField: FormikValues;

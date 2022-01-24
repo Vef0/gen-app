@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material';
-import { InputField } from 'components/atoms/form-fields';
+import { InputField } from 'common/components/atoms/form-fields';
 import { FormikValues } from 'formik';
 import React from 'react';
 

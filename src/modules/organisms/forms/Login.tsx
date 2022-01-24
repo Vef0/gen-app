@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React, {useEffect, useReducer} from 'react';
 import TextField from '@mui/material/TextField';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -6,7 +6,9 @@ import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 import Link from 'next/link';
 import Router from 'next/router';
-import { userFormsStyles } from '../../../styles/userForms.styles';
+import {userFormsStyles} from '../../../../styles/userForms.styles';
+import styles from "../../../../styles/Home.module.css";
+import Head from "next/head";
 
 //state type
 
@@ -129,58 +131,63 @@ const Login = () => {
       payload: event.target.value,
     });
   };
+
   return (
-    <form className={classes.container} noValidate autoComplete="off">
-      <Card className={classes.card}>
-        <CardContent>
-          <TextField
-            error={state.isError}
-            fullWidth
-            id="username"
-            type="email"
-            label="Usuario"
-            placeholder="Usuario"
-            margin="normal"
-            onChange={handleUsernameChange}
-            onKeyPress={handleKeyPress}
-          />
-          <TextField
-            error={state.isError}
-            fullWidth
-            id="password"
-            type="password"
-            label="Contraseña"
-            placeholder="Contraseña"
-            margin="normal"
-            helperText={state.helperText}
-            onChange={handlePasswordChange}
-            onKeyPress={handleKeyPress}
-          />
-        </CardContent>
-        <CardActions>
+    <div className={styles.container}>
+      <h3 className={styles.title}>Ingrese sus datos</h3>
+      <form className={classes.container} noValidate autoComplete="off">
+        <Card className={classes.card}>
+          <CardContent>
+            <TextField
+              error={state.isError}
+              fullWidth
+              id="username"
+              type="email"
+              label="Usuario"
+              placeholder="Usuario"
+              margin="normal"
+              onChange={handleUsernameChange}
+              onKeyPress={handleKeyPress}
+            />
+            <TextField
+              error={state.isError}
+              fullWidth
+              id="password"
+              type="password"
+              label="Contraseña"
+              placeholder="Contraseña"
+              margin="normal"
+              helperText={state.helperText}
+              onChange={handlePasswordChange}
+              onKeyPress={handleKeyPress}
+            />
+          </CardContent>
+          <CardActions>
+            <Button
+              variant="contained"
+              size="large"
+              color="secondary"
+              className={classes.loginBtn}
+              onClick={handleLogin}
+              disabled={state.isButtonDisabled}
+            >
+              Ingresar
+            </Button>
+          </CardActions>
+        </Card>
+        <Link href="/" passHref>
           <Button
             variant="contained"
-            size="large"
-            color="secondary"
-            className={classes.loginBtn}
-            onClick={handleLogin}
-            disabled={state.isButtonDisabled}
+            size="medium"
+            color="primary"
+            className={classes.backBtn}
           >
-            Ingresar
+            Atras
           </Button>
-        </CardActions>
-      </Card>
-      <Link href="/" passHref>
-        <Button
-          variant="contained"
-          size="medium"
-          color="primary"
-          className={classes.backBtn}
-        >
-          Atras
-        </Button>
-      </Link>
-    </form>
+        </Link>
+      </form>
+    </div>
+
   );
 };
 

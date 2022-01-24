@@ -1,10 +1,10 @@
 import { Button, CircularProgress } from '@mui/material';
-import { Wrapper } from 'components/layout';
-import { ChecklistConstancia } from 'components/organisms/forms';
+import { Wrapper } from 'common/components/layout';
+import { ChecklistConstancia } from 'modules/organisms/forms';
 import { Form, Formik, FormikHelpers, FormikValues } from 'formik';
 import Head from 'next/head';
-import formModel from 'utils/constanciaCliente/form-ModelCC';
-import initialValuesCC from 'utils/constanciaCliente/initial-valuesCC';
+import formModel from 'common/utils/constanciaCliente/form-ModelCC';
+import initialValuesCC from 'common/utils/constanciaCliente/initial-valuesCC';
 import homeStyles from '../../styles/Home.module.css';
 import { checklistDisplayStyles } from '../../styles/checklistDisplay.styles';
 
