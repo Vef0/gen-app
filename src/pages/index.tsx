@@ -1,11 +1,14 @@
-import { Login } from 'modules/organisms/forms';
-import type { NextPage } from 'next';
+import type {NextPage} from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
 import styles from '../../styles/Home.module.css';
+import {signIn} from "next-auth/react";
+import Button from "@mui/material/Button";
+import React from "react";
+import {userFormsStyles} from "../../styles/userForms.styles";
 
 const Home: NextPage = () => {
+  const classes = userFormsStyles();
   return (
     <div className={styles.container}>
       <Head>
@@ -19,7 +22,7 @@ const Home: NextPage = () => {
           Bienvenido a <a href="https://www.google.com/">Genesis</a> App!
         </h1>
         <br/>
-        <Login/>
+        <Button className={classes.loginBtn} onClick={() => signIn()}>Ingresar con Google</Button>
       </main>
 
       <footer className={styles.footer}>
@@ -28,7 +31,7 @@ const Home: NextPage = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Todos los derechos reservados{' '}
+          Todos los derechos reservados - Genesis App.{' '}
           <span className={styles.logo}>
             <Image
               src="/vercel.svg"

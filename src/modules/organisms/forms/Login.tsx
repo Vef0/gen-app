@@ -4,11 +4,9 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
-import Link from 'next/link';
 import Router from 'next/router';
 import {userFormsStyles} from '../../../../styles/userForms.styles';
-import styles from "../../../../styles/Home.module.css";
-import Head from "next/head";
+import styles from '../../../../styles/Home.module.css';
 
 //state type
 
@@ -173,21 +171,11 @@ const Login = () => {
             >
               Ingresar
             </Button>
+
           </CardActions>
         </Card>
-        <Link href="/" passHref>
-          <Button
-            variant="contained"
-            size="medium"
-            color="primary"
-            className={classes.backBtn}
-          >
-            Atras
-          </Button>
-        </Link>
       </form>
     </div>
-
   );
 };
 

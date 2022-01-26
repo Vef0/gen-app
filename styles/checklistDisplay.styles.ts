@@ -12,10 +12,16 @@ export const checklistDisplayStyles = makeStyles((theme: Theme) => ({
   button: {
     marginTop: theme.spacing(3),
     marginLeft: theme.spacing(1),
+    backgroundColor: '#E9897E',
+    flexGrow: 1,
+    '&:hover': {
+      backgroundColor: '#000',
+      color: '#fff',
+    },
   },
   wrapper: {
     margin: theme.spacing(1),
-    position: 'relative',
+    position: 'absolute',
   },
   buttonProgress: {
     position: 'absolute',

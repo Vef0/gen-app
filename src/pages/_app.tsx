@@ -15,6 +15,7 @@ import '../../styles/globals.css';
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
+import { SessionProvider} from "next-auth/react";
 
 const clientSideEmotionCache = createEmotionCache();
 
