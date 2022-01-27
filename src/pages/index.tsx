@@ -2,7 +2,7 @@ import type {NextPage} from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../../styles/Home.module.css';
-import {signIn} from "next-auth/react";
+import {getSession, signIn} from "next-auth/react";
 import Button from "@mui/material/Button";
 import React from "react";
 import {userFormsStyles} from "../../styles/userForms.styles";
@@ -47,3 +47,23 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+//@ts-ignore
+export async function getServerSideProps({req, res}) {
+  const session = await getSession({req});
+  if (session) {
+    return {
+      redirect: {
+        destination: '/orderOptions',
+        permanent: false,
+      },
+    }
+  }
+
+  return {
+    props: {
+      session,
+    },
+  }
+}
+
