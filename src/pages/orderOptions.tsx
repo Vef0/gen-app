@@ -3,14 +3,16 @@ import styles from '../../styles/Home.module.css';
 import {getSession, signOut} from "next-auth/react";
 import {Button} from '@mui/material';
 import {userFormsStyles} from "../../styles/userForms.styles";
+import {TodosContainer} from '../modules/organisms/search-order'
+import {GetServerSideProps} from "next";
+import { Session } from 'next-auth';
 
-//@ts-ignore
-const OrderOptions = ({session}) => {
+const OrderOptions = ({session}: {session: Session}) => {
   const classes = userFormsStyles();
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h1 className={styles.title}>Ordenes - {session.user.name} 🚗</h1>
+        <h1 className={styles.title}>Ordenes - {session?.user?.name} 🚗</h1>
         <br/>
         <div className={styles.grid}>
           <Link href="/checklist">
@@ -24,6 +26,7 @@ const OrderOptions = ({session}) => {
             </a>
           </Link>
         </div>
+        <TodosContainer/>
         <Button className={classes.loginBtn} onClick={() => signOut()}>Salir</Button>
       </main>
     </div>
@@ -32,8 +35,7 @@ const OrderOptions = ({session}) => {
 
 export default OrderOptions;
 
-//@ts-ignore
-export async function getServerSideProps({req, res}) {
+export const getServerSideProps: GetServerSideProps = async ({req, res}) => {
   const session = await getSession({req});
   if (!session) {
     return {
