@@ -1,35 +1,38 @@
-import Link from 'next/link';
-import styles from '../../styles/Home.module.css';
+import homeStyles from '../../styles/Home.module.css';
 import {getSession, signOut} from "next-auth/react";
-import {Button} from '@mui/material';
+import {Button, Container, Stack} from '@mui/material';
 import {userFormsStyles} from "../../styles/userForms.styles";
 import {TodosContainer} from '../modules/organisms/search-order'
 import {GetServerSideProps} from "next";
-import { Session } from 'next-auth';
+import {Session} from 'next-auth';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import SearchIcon from '@mui/icons-material/Search';
 
-const OrderOptions = ({session}: {session: Session}) => {
+const OrderOptions = ({session}: { session: Session }) => {
   const classes = userFormsStyles();
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>Ordenes - {session?.user?.name} 🚗</h1>
-        <br/>
-        <div className={styles.grid}>
-          <Link href="/checklist">
-            <a className={styles.card}>
-              <h2>Crear nueva Orden ➕</h2>
-            </a>
-          </Link>
-          <Link href="/clienteConstancia">
-            <a className={styles.card}>
-              <h2>Buscar Orden 🔎</h2>
-            </a>
-          </Link>
-        </div>
+    <Container>
+      <Stack
+        spacing={8}
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        sx={{p: 4}}
+      >
+        <h1 className={homeStyles.title}>Ordenes - {session?.user?.name} 🚗</h1>
+        <Stack direction="row" spacing={2}>
+          <Button variant="outlined" size="large" startIcon={<AddCircleIcon/>} href="/checklist">
+            Crear nueva Orden
+          </Button>
+          <Button variant="contained" size="large" endIcon={<SearchIcon/>} href="/clienteConstacia">
+            Buscar Orden
+          </Button>
+        </Stack>
         <TodosContainer/>
-        <Button className={classes.loginBtn} onClick={() => signOut()}>Salir</Button>
-      </main>
-    </div>
+        <Button className={classes.loginBtn}
+                onClick={() => signOut({callbackUrl: 'http://localhost:3000/'})}>Salir</Button>
+      </Stack>
+    </Container>
   );
 };
 

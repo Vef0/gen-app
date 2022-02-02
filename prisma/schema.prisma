@@ -58,12 +58,120 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
+model ClientCar {
+  id              String   @id @default(cuid())
+  name            String
+  address         String
+  RUC_DNI         String
+  phone           String
+  email           String
+  vin_series      String
+  label           String
+  survey_service  Boolean
+  survey_atention Boolean
+  survey_recomend Boolean
+  caja_acc        Boolean
+  manual          Boolean
+  other           Boolean
+  not_apply       Boolean
+  entrega_date    DateTime @default(now())
+  Todos           Todos[]
+}
+
+model Car {
+  id                                String   @id @default(cuid())
+  placa_rodaje                      String
+  marca                             String
+  modelo                            String
+  annio                             Int
+  color                             String
+  kilometraje                       Int
+  nivel_combustible                 String
+  persona_recojo                    String
+  entrega_estimada_date             DateTime @default(now())
+  inventarioV_placa                 Boolean
+  inventarioV_parach_post           Boolean
+  inventarioV_parachoques_del       Boolean
+  inventarioV_parabrisas            Boolean
+  inventarioV_plumillas             Boolean
+  inventarioV_antena                Boolean
+  inventarioV_esp_laterales         Boolean
+  inventarioV_esp_Interores         Boolean
+  inventarioV_lun_laterales         Boolean
+  inventarioV_lun_posteriores       Boolean
+  inventarioV_lun_manijas           Boolean
+  inventarioV_lun_boton             Boolean
+  inventarioV_barra_anti            Boolean
+  inventarioV_caseta_tolva          Boolean
+  inventarioV_autoradio             Boolean
+  inventarioV_mascara               Boolean
+  inventarioV_parlantes             Boolean
+  inventarioV_encendedor            Boolean
+  inventarioV_cenicero              Boolean
+  inventarioV_calefaccion           Boolean
+  inventarioV_aire_acondicionado    Boolean
+  inventarioV_control_alarma        Boolean
+  inventarioV_claxon                Boolean
+  inventarioV_tapasol               Boolean
+  inventarioV_cInturones            Boolean
+  inventarioV_asientos              Boolean
+  inventarioV_fundas                Boolean
+  inventarioV_cubre_piso            Boolean
+  inventarioV_tapiz_techo           Boolean
+  inventarioV_luces_delanteras      Boolean
+  inventarioV_luces_posteriores     Boolean
+  inventarioV_luces_direccionales   Boolean
+  inventarioV_luces_emergencia      Boolean
+  inventarioV_luces_freno           Boolean
+  inventarioV_tarjeta               Boolean
+  inventarioV_soat                  Boolean
+  inventarioV_luces_neblina         Boolean
+  inventarioV_luces_cabina          Boolean
+  inventarioV_emblemas              Boolean
+  inventarioV_escarpines            Boolean
+  inventarioV_pin_remolque          Boolean
+  inventarioV_tapa_aceite           Boolean
+  inventarioV_tapa_hidrolina        Boolean
+  inventarioV_tapa_radiador         Boolean
+  inventarioV_tapa_combustible      Boolean
+  inventarioV_medidor_aceite        Boolean
+  inventarioV_tapa_limpiaParabrisas Boolean
+  inventarioV_protector_radiador    Boolean
+  inventarioV_triangulo_seguridad   Boolean
+  inventarioV_gata                  Boolean
+  inventarioV_llave_ruedas          Boolean
+  inventarioV_dado_aros             Boolean
+  inventarioV_estuche_herramientas  Boolean
+  inventarioV_botiquin              Boolean
+  inventarioV_extIntor              Boolean
+  inventarioV_llanta_repuesto       Boolean
+  inventarioV_otros                 String
+  Todos                             Todos[]
+}
+
 model Todos {
-  id          String   @id @default(cuid())
+  id          String     @id @default(cuid())
   userId      String
   title       String
   isCompleted Boolean
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @default(now())
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @default(now())
+  user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Jobs        Jobs?      @relation(fields: [jobsId], references: [id])
+  jobsId      String?
+  clientCar   ClientCar? @relation(fields: [clientCarId], references: [id], onDelete: Cascade)
+  clientCarId String?
+  car         Car?       @relation(fields: [carId], references: [id], onDelete: Cascade)
+  carId       String?
+}
+
+model Jobs {
+  id           String   @id @default(cuid())
+  name         String
+  price        Int
+  inCharge     String
+  startDate    DateTime @default(now())
+  endDate      DateTime @default(now())
+  observations String
+  todos        Todos[]
 }

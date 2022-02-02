@@ -17,10 +17,7 @@ export const userFormsStyles = makeStyles((theme: Theme) => ({
     },
   },
   loginBtn: {
-    marginTop: theme.spacing(35),
-    marginLeft: theme.spacing(35),
-    marginRight: theme.spacing(35),
-    marginBottom: theme.spacing(35),
+    width: '250px',
     backgroundColor: '#E9897E',
     color: '#000000',
     flexGrow: 1,

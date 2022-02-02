@@ -13,7 +13,7 @@ const darkThemeOptions: ThemeOptions = {
       light: '#FA8072',
       main: '#F08080',
       dark: '#CD5C5C',
-      contrastText: '#fff',
+      contrastText: '#000',
     },
   },
 

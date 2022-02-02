@@ -1,5 +1,7 @@
 .container {
   padding: 0 3rem;
+  text-align: center;
+  margin-top: 200px;
 }
 
 .main {
@@ -13,7 +15,6 @@
 }
 
 .main h3 {
-  padding-top: 2rem;
   font-size: 2rem;
 }
 
@@ -118,4 +119,13 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+.orderList {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  font-size: 2rem;
 }
