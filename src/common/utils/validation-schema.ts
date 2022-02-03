@@ -25,6 +25,7 @@ const {
 
     // ENTREGA
     recepcionV_fecha,
+    recepcionV_hora,
     recepcionV_trabajador,
   },
 } = formModel;
@@ -84,6 +85,9 @@ const validationSchema = [
   }),
   yup.object().shape({
     [recepcionV_fecha.name]: yup
+      .string()
+      .required(`${recepcionV_fecha.requiredErrorMessage}`),
+    [recepcionV_hora.name]: yup
       .string()
       .required(`${recepcionV_fecha.requiredErrorMessage}`),
     [recepcionV_trabajador.name]: yup

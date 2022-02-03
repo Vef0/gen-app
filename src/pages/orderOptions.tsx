@@ -11,11 +11,11 @@ import SearchIcon from '@mui/icons-material/Search';
 const OrderOptions = ({session}: { session: Session }) => {
   const classes = userFormsStyles();
   return (
-    <Container>
+    <Container fixed>
       <Stack
         spacing={8}
         direction="column"
-        justifyContent="center"
+        justifyContent="space-evenly"
         alignItems="center"
         sx={{p: 4}}
       >

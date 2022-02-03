@@ -11,7 +11,7 @@ export const checklistDisplayStyles = makeStyles((theme: Theme) => ({
   },
   button: {
     marginTop: theme.spacing(3),
-    marginLeft: theme.spacing(1),
+    display: 'flex',
     backgroundColor: '#E9897E',
     flexGrow: 1,
     '&:hover': {

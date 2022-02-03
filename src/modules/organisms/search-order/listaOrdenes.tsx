@@ -8,8 +8,8 @@ type TodosProps = {
 };
 const ListaOrdenes: React.FC<TodosProps> = ({todos}) => {
   return (
-    <Grid item xs={12} md={6}>
-      <Typography sx={{mt: 4, mb: 2}} variant="h6" component="div">
+    <Grid item xs={12} md={24}>
+      <Typography sx={{mt: 4, mb: 2, fontWeight: 'bold'}} variant="h4" component="div">
         Lista de ordenes 📕
       </Typography>
       <List dense={true}>

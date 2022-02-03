@@ -1,18 +1,21 @@
-import {Button, CircularProgress, Container, Stack, Step, StepLabel, Stepper,} from '@mui/material';
+import {Box, Button, CircularProgress, Container, Grid, Paper, Step, StepLabel, Stepper,} from '@mui/material';
 import homeStyles from '../../styles/Home.module.css';
-import {Wrapper} from '../common/components/layout';
 import React from 'react';
 import {Form, Formik, FormikHelpers, FormikValues} from 'formik';
 import initialValues from 'common/utils/initial-values';
-import {ClientForm, RecepcionForm, Trabajos, VehicleForm, VehicleItems,} from '../modules/organisms/forms';
+import {
+  CheckoutSuccess,
+  ClientForm,
+  RecepcionForm,
+  Trabajos,
+  VehicleForm,
+  VehicleItems
+} from '../modules/organisms/forms';
 import formModel from '../common/utils/form-models';
 import validationSchema from 'common/utils/validation-schema';
 import {checklistDisplayStyles} from '../../styles/checklistDisplay.styles';
 import ReviewOrder from '../modules/organisms/review-order';
-import CheckoutSucces from '../modules/organisms/forms/checkout-succes';
 import Link from 'next/link';
-import {userFormsStyles} from '../../styles/userForms.styles';
-import axios from 'axios';
 
 const steps = [
   'Cliente',
@@ -47,8 +50,6 @@ const CheckList: React.FC = () => {
   const selectValidationSchema = validationSchema[activeStep];
   const isLast = activeStep === steps.length - 1;
   const stylesF = checklistDisplayStyles();
-  const userFStyles = userFormsStyles();
-
   const sleep = (time: number) => {
     return new Promise((resolve) => setTimeout(resolve, time));
   };
@@ -57,9 +58,8 @@ const CheckList: React.FC = () => {
     values: FormikValues,
     actions: FormikHelpers<FormikValues>
   ) => {
-    axios.post("../api/todos", {
-
-    })
+    // Axios post all values to server
+    // axios.post("../api/todos", {})
     await sleep(1000);
     alert(JSON.stringify(values, null, 2));
     console.log(values);
@@ -82,15 +82,20 @@ const CheckList: React.FC = () => {
 
   return (
     <Container>
-      <Stack
-        spacing={8}
+      <Grid
+        container
+        spacing={0}
         direction="column"
-        justifyContent="center"
         alignItems="center"
-        sx={{p: 4}}
+        justifyContent="center"
+        style={{minHeight: '100vh'}}
       >
-        <h1 className={homeStyles.title}>CheckList</h1>
-        <Wrapper>
+        <Paper
+          variant="outlined"
+          sx={{my: {xs: 3, md: 6}, p: {xs: 2, md: 3}}}
+        >
+          <h1 className={homeStyles.title}>CheckList</h1>
+          <br/>
           <Stepper activeStep={activeStep} className={stylesF.stepper}>
             {steps.map((label, index) => (
               <Step key={label} active={index >= 0}>
@@ -98,8 +103,9 @@ const CheckList: React.FC = () => {
               </Step>
             ))}
           </Stepper>
+          <br/>
           {activeStep === steps.length ? (
-            <CheckoutSucces/>
+            <CheckoutSuccess/>
           ) : (
             <Formik
               initialValues={initialValues}
@@ -109,44 +115,42 @@ const CheckList: React.FC = () => {
               {(formikProps) => (
                 <Form>
                   {renderStepContent(activeStep)}
-                  <div className={stylesF.buttons}>
-                    {activeStep >= 1 && (
+                  <Box sx={{display: 'flex', justifyContent: 'flex-end'}}>
+                    {activeStep !== 0 && (
                       <Button
                         onClick={() => setActiveStep((prev) => prev - 1)}
-                        className={stylesF.button}
+                        sx={{mt: 3, ml: 1}}
                       >
                         Atras
                       </Button>
                     )}
-                    <div className={stylesF.wrapper}>
-                      <Button
-                        type="submit"
-                        variant="contained"
-                        color="primary"
-                        className={stylesF.button}
-                        disabled={formikProps.isSubmitting}
-                      >
-                        {isLast ? 'ENVIAR' : 'SIGUIENTE'}
-                      </Button>
-                      {formikProps.isSubmitting && <CircularProgress/>}
-                    </div>
-                  </div>
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      color="primary"
+                      sx={{mt: 3, ml: 1}}
+                      disabled={formikProps.isSubmitting}
+                    >
+                      {isLast ? 'TERMINAR ORDEN' : 'SIGUIENTE'}
+                    </Button>
+                    {formikProps.isSubmitting && <CircularProgress/>}
+                  </Box>
                 </Form>
               )}
             </Formik>
           )}
-        </Wrapper>
+        </Paper>
         <Link href="/" passHref>
           <Button
             variant="contained"
             size="medium"
             color="primary"
-            className={userFStyles.backBtn}
+            sx={{mt: 3, ml: 1}}
           >
             Salir
           </Button>
         </Link>
-      </Stack>
+      </Grid>
     </Container>
   );
 };

@@ -320,9 +320,14 @@ export default {
 
     // RECEPCION DEL VEHICULO
     recepcionV_fecha: {
-      name: 'recepcionV_ingreso',
-      label: 'Ingreso del Vehiculo',
-      requiredErrorMessage: 'Ingrese la fecha-hora de ingreso del vehiculo',
+      name: 'recepcionV_fecha',
+      label: 'Fecha de ingreso del Vehiculo',
+      requiredErrorMessage: 'Ingrese la fecha de ingreso del vehiculo',
+    },
+    recepcionV_hora: {
+      name: 'recepcionV_hora',
+      label: 'Hora de ingreso del Vehiculo',
+      requiredErrorMessage: 'Ingrese la hora de ingreso del vehiculo',
     },
     recepcionV_trabajador: {
       name: 'recepcionV_trabajador',

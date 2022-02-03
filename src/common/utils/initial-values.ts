@@ -84,6 +84,7 @@ const {
 
     // RECEPCION DEL VEHICULO
     recepcionV_fecha,
+    recepcionV_hora,
     recepcionV_trabajador,
 
     // TRABAJOS
@@ -180,6 +181,7 @@ export default {
 
   // RECEPCION VEHICULO
   [recepcionV_fecha.name]: '',
+  [recepcionV_hora.name]: '',
   [recepcionV_trabajador.name]: '',
 
   //TRABAJOS
