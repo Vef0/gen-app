@@ -24,7 +24,7 @@ const OrderOptions = ({session}: { session: Session }) => {
           <Button variant="outlined" size="large" startIcon={<AddCircleIcon/>} href="/checklist">
             Crear nueva Orden
           </Button>
-          <Button variant="contained" size="large" endIcon={<SearchIcon/>} href="/clienteConstacia">
+          <Button variant="contained" size="large" endIcon={<SearchIcon/>} href="/clienteConstancia">
             Buscar Orden
           </Button>
         </Stack>

@@ -1,6 +1,5 @@
-import {Stack, Typography} from '@mui/material';
+import {List, ListItem, ListItemText, Typography} from '@mui/material';
 import {FormikValues} from 'formik';
-import {reviewOrderStyles} from '../../../../styles/reviewOrder.styles';
 import React from "react";
 
 const VehicleDetails: React.FC<FormikValues> = (props) => {
@@ -19,33 +18,49 @@ const VehicleDetails: React.FC<FormikValues> = (props) => {
     },
   } = props;
 
-  const reviewOrderS = reviewOrderStyles();
-
   return (
     <div>
-      <Typography variant="h6" gutterBottom className={reviewOrderS.title}>
-        Detalles del Vehiculo
+      <Typography variant="h5" gutterBottom sx={{mt: 2, fontWeight: 'medium'}}>
+        Datos de Recepcion del Vehiculo
       </Typography>
-
-      <Stack
-        direction="column"
-        justifyContent="center"
-        alignItems="stretch"
-        spacing={2}
-      >
-        <Typography gutterBottom>{`Placa: ${vehiculo_placa}`}</Typography>
-        <Typography gutterBottom>{`Marca: ${vehiculo_marca}`}</Typography>
-        <Typography gutterBottom>{`Modelo: ${vehiculo_modelo}`}</Typography>
-        <Typography gutterBottom>{`Ano: ${vehiculo_annio}`}</Typography>
-        <Typography gutterBottom>{`Color: ${vehiculo_color}`}</Typography>
-        <Typography gutterBottom>{`Kilometraje: ${vehiculo_kilometraje}`}</Typography>
-        <Typography gutterBottom>{`Nivel de Combustible: ${vehiculo_combustible}`}</Typography>
-        <Typography
-          gutterBottom
-        >{`Persona recojo: ${vehiculo_personaRecojo}`}</Typography>
-        <Typography gutterBottom>{`Fecha de entrega estimada: ${vehiculo_entrega_estimada}`}</Typography>
-
-      </Stack>
+      <List disablePadding>
+        <ListItem sx={{py: 1, px: 0}}>
+          <ListItemText primary={`Placa:`}/>
+          <Typography variant="body2" gutterBottom>{vehiculo_placa}</Typography>
+        </ListItem>
+        <ListItem sx={{py: 1, px: 0}}>
+          <ListItemText primary={`Marca:`}/>
+          <Typography variant="body2" gutterBottom>{vehiculo_marca}</Typography>
+        </ListItem>
+        <ListItem sx={{py: 1, px: 0}}>
+          <ListItemText primary={`Modelo: `}/>
+          <Typography variant="body2" gutterBottom>{vehiculo_modelo}</Typography>
+        </ListItem>
+        <ListItem sx={{py: 1, px: 0}}>
+          <ListItemText primary={`Año:`}/>
+          <Typography variant="body2" gutterBottom>{vehiculo_annio}</Typography>
+        </ListItem>
+        <ListItem sx={{py: 1, px: 0}}>
+          <ListItemText primary={`Color:`}/>
+          <Typography variant="body2" gutterBottom>{vehiculo_color}</Typography>
+        </ListItem>
+        <ListItem sx={{py: 1, px: 0}}>
+          <ListItemText primary={`Kilometraje:`}/>
+          <Typography variant="body2" gutterBottom>{vehiculo_kilometraje}</Typography>
+        </ListItem>
+        <ListItem sx={{py: 1, px: 0}}>
+          <ListItemText primary={`Nivel de combustible:`}/>
+          <Typography variant="body2" gutterBottom>{vehiculo_combustible}</Typography>
+        </ListItem>
+        <ListItem sx={{py: 1, px: 0}}>
+          <ListItemText primary={`Persona asignada al recojo:`}/>
+          <Typography variant="body2" gutterBottom>{vehiculo_personaRecojo}</Typography>
+        </ListItem>
+        <ListItem sx={{py: 1, px: 0}}>
+          <ListItemText primary={`Entrega estimada del vehiculo:`}/>
+          <Typography variant="body2" gutterBottom>{vehiculo_entrega_estimada}</Typography>
+        </ListItem>
+      </List>
     </div>
   );
 };

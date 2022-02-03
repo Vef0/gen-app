@@ -1,38 +1,28 @@
 import React from 'react';
 import {FormikValues} from "formik";
-import {Grid, Typography} from '@mui/material';
+import {List, ListItem, ListItemText, Typography} from '@mui/material';
 
 const ReceptionDetails: React.FC<FormikValues> = (props) => {
-  const {recepcionV_fecha, recepcionV_hora, recepcionV_trabajador} = props;
+  const {formValues: {recepcionV_fecha, recepcionV_hora, recepcionV_trabajador},} = props;
   return (
     <div>
-      <Grid item container direction="column" xs={12} sm={6}>
-        <Typography variant="h5" gutterBottom sx={{mt: 2, fontWeight: 'medium'}}>
-          Datos de Recepcion del Vehiculo
-        </Typography>
-        <Grid container>
-          <Grid item xs={6}>
-            <Typography gutterBottom sx={{fontWeight: 'medium'}}>Fecha: </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography gutterBottom>{recepcionV_fecha}</Typography>
-          </Grid>
-
-          <Grid item xs={6}>
-            <Typography gutterBottom sx={{fontWeight: 'medium'}}>Hora: </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography gutterBottom>{recepcionV_hora}</Typography>
-          </Grid>
-
-          <Grid item xs={6}>
-            <Typography gutterBottom sx={{fontWeight: 'medium'}}>Trabajador: </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography gutterBottom>{recepcionV_trabajador}</Typography>
-          </Grid>
-        </Grid>
-      </Grid>
+      <Typography variant="h5" gutterBottom sx={{mt: 2, fontWeight: 'medium'}}>
+        Datos de Recepcion del Vehiculo
+      </Typography>
+      <List disablePadding>
+        <ListItem sx={{py: 1, px: 0}}>
+          <ListItemText primary={`Recepcion del vehiculo:`}/>
+          <Typography variant="body2" gutterBottom>{recepcionV_fecha}</Typography>
+        </ListItem>
+        <ListItem sx={{py: 1, px: 0}}>
+          <ListItemText primary={`Hora:`}/>
+          <Typography variant="body2" gutterBottom>{recepcionV_hora}</Typography>
+        </ListItem>
+        <ListItem sx={{py: 1, px: 0}}>
+          <ListItemText primary={`Trabajador:`}/>
+          <Typography variant="body2" gutterBottom>{recepcionV_trabajador}</Typography>
+        </ListItem>
+      </List>
     </div>
   );
 };

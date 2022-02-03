@@ -1,17 +1,15 @@
-import { Button, CircularProgress } from '@mui/material';
-import { Wrapper } from 'common/components/layout';
-import { ChecklistConstancia } from 'modules/organisms/forms';
-import { Form, Formik, FormikHelpers, FormikValues } from 'formik';
-import Head from 'next/head';
+import {Box, Button, CircularProgress, Container, Grid, Paper} from '@mui/material';
+import {ChecklistConstancia} from 'modules/organisms/forms';
+import {Form, Formik, FormikHelpers, FormikValues} from 'formik';
 import formModel from 'common/utils/constanciaCliente/form-ModelCC';
 import initialValuesCC from 'common/utils/constanciaCliente/initial-valuesCC';
 import homeStyles from '../../styles/Home.module.css';
-import { checklistDisplayStyles } from '../../styles/checklistDisplay.styles';
+import React from "react";
+import Link from "next/link";
 
-const { formFieldCC } = formModel;
+const {formFieldCC} = formModel;
 
 const ClienteConstancia: React.FC = () => {
-  const stylesF = checklistDisplayStyles();
   const sleep = (time: number) => {
     return new Promise((resolve) => setTimeout(resolve, time));
   };
@@ -28,40 +26,55 @@ const ClienteConstancia: React.FC = () => {
     values: FormikValues,
     actions: FormikHelpers<FormikValues>
   ) => {
-    submitForm(values, actions);
+    submitForm(values, actions).then();
   };
   return (
-    <div className={homeStyles.container}>
-      <Head>
-        <title>Constancia de Conformidad</title>
-        <meta name="description" content="Forms to validate user credentials" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className={homeStyles.main}>
-        <h3 className={homeStyles.title}>Constancia de Conformidad</h3>
-        <Wrapper>
+    <Container>
+      <Grid
+        container
+        spacing={0}
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        style={{minHeight: '100vh'}}
+      >
+        <Paper
+          variant="outlined"
+          sx={{my: {xs: 3, md: 6}, p: {xs: 2, md: 3}}}
+        >
+          <h1 className={homeStyles.title}>Constancia de Conformidad</h1>
           <Formik initialValues={initialValuesCC} onSubmit={handleSubmit}>
             {(formikProps) => (
               <Form>
-                <ChecklistConstancia formsField={formFieldCC} />
-                <div className={stylesF.wrapper}>
+                <ChecklistConstancia formsField={formFieldCC}/>
+                <Box sx={{display: 'flex', justifyContent: 'flex-end'}}>
                   <Button
                     type="submit"
                     variant="contained"
                     color="primary"
-                    className={stylesF.button}
+                    sx={{mt: 3, ml: 1}}
                     disabled={formikProps.isSubmitting}
                   >
                     Enviar
                   </Button>
-                  {formikProps.isSubmitting && <CircularProgress />}
-                </div>
+                  {formikProps.isSubmitting && <CircularProgress/>}
+                </Box>
               </Form>
             )}
           </Formik>
-        </Wrapper>
-      </main>
-    </div>
+        </Paper>
+        <Link href="/" passHref>
+          <Button
+            variant="contained"
+            size="medium"
+            color="primary"
+            sx={{mt: 3, ml: 1}}
+          >
+            Salir
+          </Button>
+        </Link>
+      </Grid>
+    </Container>
   );
 };
 

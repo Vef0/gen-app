@@ -18,6 +18,7 @@ const ChecklistConstancia: React.FC<PropsType> = (props) => {
       otros,
       na_cb,
       constancia_fecha,
+      constancia_hora,
     },
   } = props;
   return (
@@ -55,6 +56,15 @@ const ChecklistConstancia: React.FC<PropsType> = (props) => {
               name={constancia_fecha.name}
               label={constancia_fecha.label}
               fullWidth
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <InputField
+              defaultProps={{
+                name: constancia_hora.name,
+                label: constancia_hora.label,
+                fullWidth: true,
+              }}
             />
           </Grid>
         </Grid>

@@ -1,4 +1,4 @@
-import {Grid, Typography} from '@mui/material';
+import {Grid, List, Typography, ListItem, ListItemText} from '@mui/material';
 import React from 'react';
 import {FormikValues} from 'formik';
 
@@ -16,54 +16,35 @@ const ClientDetails: React.FC<FormikValues> = (props) => {
 
   return (
     <div>
-      <Grid item container direction="column" xs={12} sm={6}>
-        <Typography variant="h5"  gutterBottom sx={{mt: 2, fontWeight: 'medium'}}>
-          Detalles del Cliente
-        </Typography>
-        <Grid container>
-          <Grid item xs={6}>
-            <Typography gutterBottom sx={{ fontWeight: 'medium' }}>Nombre: </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography gutterBottom>{client_name}</Typography>
-          </Grid>
-
-          <Grid item xs={6}>
-            <Typography gutterBottom sx={{ fontWeight: 'medium' }}>Direccion: </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography gutterBottom>{client_address}</Typography>
-          </Grid>
-
-          <Grid item xs={6}>
-            <Typography gutterBottom  sx={{ fontWeight: 'medium' }}>RUC - DNI: </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography gutterBottom>{client_R_D}</Typography>
-          </Grid>
-
-          <Grid item xs={6}>
-            <Typography gutterBottom  sx={{ fontWeight: 'medium' }}>Telefono: </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography gutterBottom>{client_telephone}</Typography>
-          </Grid>
-
-          <Grid item xs={6}>
-            <Typography gutterBottom  sx={{ fontWeight: 'medium' }}>Email: </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography gutterBottom>{client_email}</Typography>
-          </Grid>
-
-          <Grid item xs={6}>
-            <Typography gutterBottom  sx={{ fontWeight: 'medium' }}>Serie VIN: </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography gutterBottom>{client_vin}</Typography>
-          </Grid>
-        </Grid>
-      </Grid>
+      <Typography variant="h5" gutterBottom sx={{mt: 2, fontWeight: 'medium'}}>
+        Detalles del Cliente
+      </Typography>
+      <List disablePadding>
+        <ListItem sx={{py: 1, px: 0}}>
+          <ListItemText primary={`Nombre:`}/>
+          <Typography variant="body2" gutterBottom>{client_name}</Typography>
+        </ListItem>
+        <ListItem sx={{py: 1, px: 0}}>
+          <ListItemText primary={`Direccion:`}/>
+          <Typography variant="body2" gutterBottom>{client_address}</Typography>
+        </ListItem>
+        <ListItem sx={{py: 1, px: 0}}>
+          <ListItemText primary={`RUC - DNI: `}/>
+          <Typography variant="body2" gutterBottom>{client_R_D}</Typography>
+        </ListItem>
+        <ListItem sx={{py: 1, px: 0}}>
+          <ListItemText primary={`Telefono:`}/>
+          <Typography variant="body2" gutterBottom>{client_telephone}</Typography>
+        </ListItem>
+        <ListItem sx={{py: 1, px: 0}}>
+          <ListItemText primary={`Email:`}/>
+          <Typography variant="body2" gutterBottom>{client_email}</Typography>
+        </ListItem>
+        <ListItem sx={{py: 1, px: 0}}>
+          <ListItemText primary={`VIN:`}/>
+          <Typography variant="body2" gutterBottom>{client_vin}</Typography>
+        </ListItem>
+      </List>
     </div>
   );
 };

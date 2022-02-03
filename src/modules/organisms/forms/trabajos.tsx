@@ -1,7 +1,7 @@
-import { FormikValues } from 'formik';
+import {FormikValues} from 'formik';
 import React from 'react';
-import { Grid, Stack, Typography } from '@mui/material';
-import { SelectField } from '../../../common/components/atoms/form-fields';
+import {Stack} from '@mui/material';
+import {SelectField} from '../../../common/components/atoms/form-fields';
 
 interface PropsType {
   formsField: FormikValues;
@@ -60,7 +60,7 @@ const Trabajos: React.FC<PropsType> = (props) => {
       justifyContent="center"
       alignItems="stretch"
       spacing={2}
-      sx={{ t: 2 }}
+      sx={{t: 2}}
     >
       <SelectField
         name={trabajo_one.name}

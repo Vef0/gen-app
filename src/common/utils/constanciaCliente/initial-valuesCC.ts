@@ -8,6 +8,7 @@ const {
     otros,
     na_cb,
     constancia_fecha,
+    constancia_hora,
   },
 } = model;
 
@@ -17,4 +18,5 @@ export default {
   [otros.name]: '',
   [na_cb.name]: false,
   [constancia_fecha.name]: '',
+  [constancia_hora.name]: '',
 };

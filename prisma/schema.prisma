@@ -74,7 +74,8 @@ model ClientCar {
   manual          Boolean
   other           Boolean
   not_apply       Boolean
-  entrega_date    DateTime @default(now())
+  entrega_date    String
+  entrega_hora    String
   Todos           Todos[]
 }
 
@@ -146,6 +147,9 @@ model Car {
   inventarioV_extIntor              Boolean
   inventarioV_llanta_repuesto       Boolean
   inventarioV_otros                 String
+  recepcionV_fecha  String
+  recepcionV_hora String
+  recepcionV_trabajador String
   Todos                             Todos[]
 }
 
@@ -170,8 +174,8 @@ model Jobs {
   name         String
   price        Int
   inCharge     String
-  startDate    DateTime @default(now())
-  endDate      DateTime @default(now())
+  startDate    String
+  endDate      String
   observations String
   todos        Todos[]
 }

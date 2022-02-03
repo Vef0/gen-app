@@ -44,7 +44,7 @@ const DateSelector = (props) => {
         label={`${label}`}
         value={selectedDate}
         onChange={onChange}
-        renderInput={(props) => <TextField {...props} helperText={null} />}
+        renderInput={(props) => <TextField {...props} fullWidth helperText={null} />}
       />
     </LocalizationProvider>
   );

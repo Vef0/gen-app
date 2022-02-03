@@ -20,8 +20,13 @@ export default {
     },
     constancia_fecha: {
       name: 'constancia_fecha',
-      label: 'Fecha y hora de constancia',
-      requiredErrorMessage: 'Fecha y hora de constancia es requerido',
+      label: 'Fecha de entrega',
+      requiredErrorMessage: 'Fecha de constancia es requerido',
+    },
+    constancia_hora: {
+      name: 'constancia_hora',
+      label: 'Hora de entrega',
+      requiredErrorMessage: 'Hora de constancia es requerido',
     },
   },
 };
