@@ -1,8 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). and MUI v5
 
 ## Getting Started
 
-First, run the development server:
+First, you have to create a .env file and add your database URL of postgresql, ur auth API KEY from Google
+
+Next, run the development server:
 
 ```bash
 npm run dev
